@@ -1,170 +1,210 @@
 
-o = ">-O"
-e = "   "
-w = "   "
-s = "   "
-k = "   "
-d = "   "
-b = "   "
-t = "   "
-
-while True:
-    print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
+class map():
+    def __init__(self):
+        self.o = ">-O"
+        self.e = "   "
+        self.w = "   "
+        self.s = "   "
+        self.k = "   "
+        self.d = "   "
+        self.b = "   "
+        self.t = "   "
+        self.old = None
+        
+    def printMap(self):
+        print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
                                             ''...............................''                                              
-                                           .,.                               .;.    ..  ..                                   
-                                           .,.                               .,.    ',  .,.                                  
-                                           .,.                               .;.    ',  .,.                                  
-                                           .:'                               ':.    ,,  .;.                                  
-       .,'.........,.  .,..................','...............................','....'.   .'.......,'                         
-       .,          ,:..;'                                                                         .,                         
-       .,          ..  ..                                                                         .,     .......             
-       .,          ,;..;'                                                                         .,  .,,......;'            
-       .,          ,'  ''                                                                         .,  .,.      .,            
-       .,   {b}    ,'  ''                                                                         .:..,;.      .,            
-       .,          ,'  ''                                                                         .;'.',.      .,            
-       .,          ,'  ''                                                                         .;'.,,.      .,   .........
-       .,          ,'  ''                                                                         .:..,:.      ':..,c'......:
-       .:..........;'  ''                                                                         .,  .,.      ':..,:.      ,
-        ............   ''                                {d}                                      .,  .,.      ':'.;:.      ,
-                     ..,,                                                                         .,  .,. {t}  ';..':,......:
-           .,,.........:,                                                                         .,  .,.      .,   .........
-           .,.         ''                                                                         .,  .,.      .,            
-           .,.         .'                                                                         .,  .,.      .,            
-           .,.         .'                                                                         .,  .,.      .,   .'......'
-           .,.         .'                                                                         .,  .,.      ':'.;:.      ;
-           .,.         .'                                                                         .,  .,.      ';..';.      ,
-           .;,.........;,                                                                         .,  .,.      ':'.;:.      ,
-            ...........;:.........................................................................;,  .,,......;,  .,,......;
-                        .................;;..':.............................;;..,;........,:...:,..                   ..     
-                                     .'..;,..';'.'.                     .'..;,..,;..'.   .;;...;,.................'.         
-                                     ,,          .;.                   .;.          ,,   ,,                       ,,         
-                      ............   ,'          .,.                   .,.          ',   ''                       ''         
-                     ';.........';.  ,'          .,.                   .,.          ',   ''                       ',         
-                     ''         .,.  ,'          .,.                   .,.          ',   ''                       ',         
-                     ',         .,.  ,'          .,.                   .,.          ',   ''        {k}           ',         
-                     ',         .;;..;'          .,.                   .,.          ',   ''                       ',         
-                     ',          ',..,.          .,.                   .,.          ',   ''                       ''         
-                     ''   {s}    ,,..;.          .,.                   .,.          ',   ''                       ''         
-                     ''         .;;..;'          .,.                   .,.          ',   ,,                       ,,         
-                     ''         .,.  ,'          .,.   .............   .,.          ',   .'.......................'.         
-                     ''         .,.  ,'          .,.  ,;...........;,  .;.          ',                                       
-                     ';.........';.  ,'          .,.  ,'           .,  .,.          ',                                       
-                      ...........    ,'          .,.  ,'           ',  .,.          ',                                       
-                                     ,'          .;,..:'           ':'.,;.          ',                                       
-                                     ,'    {w}    ''..,.    {o}     .,..''   {e}    ',                                       
-                                     ,'          .,,.';.           .;'.,,.          ',                                       
-                                     ,'          .;,..;'           ';..';.          ',                                       
-                                     ,'          .;.  ,'           ',  .;.          ',                                       
-                                     ,c,,,,,,,,,,::.  ;c,,,,,,,,,,,c;  .::,,,,,,,,,,c,                                       '''
-    )
-    
-    move = input("")
-    
-    if move == "left" and o == ">-O":
-        o = "   "
-        old = "Office"
-        e = "   "
-        w = ">-O"
+                                            .,.                               .;.    ..  ..                                   
+                                            .,.                               .,.    ',  .,.                                  
+                                            .,.                               .;.    ',  .,.                                  
+                                            .:'                               ':.    ,,  .;.                                  
+        .,'.........,.  .,..................','...............................','....'.   .'.......,'                         
+        .,          ,:..;'                                                                         .,                         
+        .,                                                                                         .,     .......             
+        .,          ,;..;'                                                                         .,  .,,......;'            
+        .,          ,'  ''                                                                         .,  .,.      .,            
+        .,   {self.b}    ,'  ''                                                                         .:..,;.      .,            
+        .,          ,'  ''                                                                                     .,            
+        .,          ,'  ''                                                                                      .,   .........
+        .,          ,'  ''                                                                         .:..,:.      ':..,c'......:
+        .:..........;'  ''                                                                         .,  .,.      ':..,:.      ,
+            ............   ''                                {self.d}                                   .,  .,.      ':'.;:.      ,
+                        ..,,                                                                       .,  .,. {self.t}  ';..':,......:
+            .,,.........:,                                                                         .,  .,.      .,   .........
+            .,.         ''                                                                         .,  .,.      .,            
+            .,.         .'                                                                         .,  .,.      .,            
+            .,.         .'                                                                         .,  .,.      .,   .'......'
+            .,.         .'                                                                         .,  .,.      ':'.;:.      ;
+            .,.         .'                                                                         .,  .,.      ';..';.      ,
+            .;,.........;,                                                                         .,  .,.      ':'.;:.      ,
+            ...........;:...................      .............................       .........   ....;,  .,,......;,  .,,...;
+                           .................      .............................       .......,:   :,..                   ..     
+                                        .'          '.                     .'          '.   .;;   ;,.................'.         
+                                        ,,          .;.                   .;.          ,,   ,,                       ,,         
+                        ............   ,'          .,.                   .,.          ',   ''                       ''         
+                        ';.........';.  ,'          .,.                   .,.          ',   ''                       ',         
+                        ''         .,.  ,'          .,.                   .,.          ',   ''                       ',         
+                        ',         .,.  ,'          .,.                   .,.          ',   ''        {self.k}           ',         
+                        ',         .;;..;'          .,.                   .,.          ',   ''                       ',         
+                        ',                          .,.                   .,.          ',   ''                       ''         
+                        ''   {self.s}    ,,..;.          .,.                   .,.          ',   ''                       ''         
+                        ''         .;;..;'          .,.                   .,.          ',   ,,                       ,,         
+                        ''         .,.  ,'          .,.   .............   .,.          ',   .'.......................'.         
+                        ''         .,.  ,'          .,.  ,;...........;,  .;.          ',                                       
+                        ';.........';.  ,'          .,.  ,'           .,  .,.          ',                                       
+                        ...........    ,'          .,.  ,'           ',  .,.          ',                                       
+                                        ,'          .;,..:'           ':'.,;.          ',                                       
+                                        ,'    {self.w}              {self.o}              {self.e}    ',                                       
+                                        ,'          .,,.';.           .;'.,,.          ',                                       
+                                        ,'          .;,..;'           ';..';.          ',                                       
+                                        ,'          .;.  ,'           ',  .;.          ',                                       
+                                        ,c,,,,,,,,,,::.  ;c,,,,,,,,,,,c;  .::,,,,,,,,,,c,                                       '''
+        )
         
-    elif move == "right" and o == ">-O":
-         o = "   "
-         old = "Office"
-         e = ">-O"
-         
-    elif move == "back" and old == "Office":       
-        if e == ">-O":
-            old = "East"
-        if w == ">-O":
-            old = "West"
-        o = ">-O"
-        e = "   "
-        w = "   "
-    
-    elif move == "back" and old == "East":    
-        if d == ">-O":
-            old = "Dining"
-        if o == ">-O":
-            old = "Office"
-        e = ">-O"
-        d = "   "
-        o = "   "
+    def Move(self, move):
         
-    elif move == "left" and w == ">-O":
-        old = "West"
-        s = ">-O"
-        w = "   "
-    
-    elif move == "back" and old == "West":
-        if s == ">-O":
-            old = "Supply"
-        if d == ">-O":
-            old = "Dining"
-        if o == ">-O":
-            old = "Office"
-        w = ">-O"
-        s = "   "
-        o = "   "
-        d = "   "
+        if move == "left" and self.o == ">-O":
+            self.o = "   "
+            self.old = "Office"
+            self.e = "   "
+            self.w = ">-O"
+            
+        elif move == "right" and self.o == ">-O":
+            self.o = "   "
+            self.old = "Office"
+            self.e = ">-O"
+        
+        elif move == "left" and self.w == ">-O":
+            self.old = "West"
+            self.s = ">-O"
+            self.w = "   "
+            
+        elif move == "up" and (self.e == ">-O" or self.w == ">-O"):
+            if self.e == ">-O":
+                self.old = "East"
+            if self.w == ">-O":
+                self.old = "West"
+            self.d = ">-O"
+            self.e = "   "
+            self.w = "   "
 
-    elif move == "back" and old == "Supply":   
-        old = "West"
-        s = ">-O"
-        w = "   "
+        elif move == "left" and self.e == ">-O":
+            self.old = "East"
+            self.o = ">-O"
+            self.e = "   "
+        elif move == "right" and self.w == ">-O":
+            self.old = "West"
+            self.o = ">-O"
+            self.w = "   "
+
+        elif move == "right" and self.s == ">-O":
+            self.old = "Supply"
+            self.s = "   "
+            self.w = ">-O"
+            
+        elif move == "left" and self.d == ">-O":
+            self.old = "Dining"
+            self.b = ">-O"
+            self.d = "   "
+
+        elif move == "right" and self.d == ">-O":
+            self.old = "Dining"
+            self.t = ">-O"
+            self.d = "   "
+
+        elif move == "east" and self.d == ">-O":
+            self.old = "Dining"
+            self.e = ">-O"
+            self.d = "   "
+
+        elif move == "west" and self.d == ">-O":
+            self.old = "Dining"
+            self.w = ">-O"
+            self.d = "   "
+
+        elif move == "right" and self.d == ">-O":
+            self.old = "Dining"
+            self.t = ">-O"
+            self.d = "   "
+
+        elif move == "kitchen" and self.d == ">-O":
+            self.old = "Dining"
+            self.k = ">-O"
+            self.d = "   "
+
+        elif move == "back":
+            if self.old == "Kitchen":
+                self.old = "Dining"
+                self.k = ">-O"
+                self.d = "   "
+
+            elif self.old == "Dining":
+                if self.e == ">-O":
+                    self.old = "East"
+                if self.w == ">-O":
+                    self.old = "West"
+                if self.b == ">-O":
+                    self.old = "Backstage"
+                if self.t == ">-O":
+                    self.old = "Toilets"
+                if self.k == ">-O":
+                    self.old = "Kitchen"
+                self.d = ">-O"
+                self.e = "   "
+                self.w = "   "
+                self.b = "   "
+                self.t = "   "
+                self.k = "   "
+
+            elif self.old == "Supply":
+                self.old = "West"
+                self.s = ">-O"
+                self.w = "   "
+            
+            elif self.old == "West":
+                if self.s == ">-O":
+                    self.old = "Supply"
+                if self.d == ">-O":
+                    self.old = "Dining"
+                if self.o == ">-O":
+                    self.old = "Office"
+                self.w = ">-O"
+                self.s = "   "
+                self.o = "   "
+                self.d = "   "
         
-    
-    elif move == "up" and (e == ">-O" or w == ">-O"):
-        if e == ">-O":
-            old = "East"
-        if w == ">-O":
-            old = "West"
-        d = ">-O"
-        e = "   "
-        w = "   "
-        
-    elif move == "back" and old == "Dining":
-        if e == ">-O":
-            old = "East"
-        if w == ">-O":
-            old = "West"
-        if b == ">-O":
-            old = "Backstage"
-        if t == ">-O":
-            old = "Toilets"
-        d = ">-O"
-        e = "   "
-        w = "   "
-        b = "   "
-        t = "   "
-    
-    elif move == "left" and d == ">-O":
-        old = "Dining"
-        b = ">-O"
-        d = "   "
-    
+            elif self.old == "East":
+                if self.d == ">-O":
+                    self.old = "Dining"
+                if self.o == ">-O":
+                    self.old = "Office"
+                self.e = ">-O"
+                self.d = "   "
+                self.o = "   "
+
+            elif self.old == "Office":
+                if self.e == ">-O":
+                    self.old = "East"
+                if self.w == ">-O":
+                    self.old = "West"
+                self.o = ">-O"
+                self.e = "   "
+                self.w = "   "
+
+            elif self.old == "Toilets":
+                self.old = "Dining"
+                self.t = ">-O"
+                self.d = "   "
+
+            elif self.old == "Backstage":
+                self.old = "Dining"
+                self.b = ">-O"
+                self.d = "   "
 
 
-  
-    elif move == "right" and d == ">-O":
-        old = "Dining"
-        t = ">-O"
-        d = "   "
+Map = map()
+while True:
     
-    elif move == "east" and d == ">-O":
-        e = ">-O"
-        d = "   "
-    
-    elif move == "west" and d == ">-O":
-        w = ">-O"
-        d = "   "
-        
-    elif move == "right" and d == ">-O":
-        t = ">-O"
-        d = "   "
-    elif move == "kitchen" and d == ">-O":
-        k = ">-O"
-        d = "   "
-    elif move == "back" and k == ">-O":
-        d = ">-O"
-        k = "   "
-    
-    
+    Map.printMap()
+    move = input()
+    Map.Move(move)
