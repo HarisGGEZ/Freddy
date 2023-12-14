@@ -62,42 +62,92 @@ while True:
     
     if move == "left" and o == ">-O":
         o = "   "
+        old = "Office"
         e = "   "
         w = ">-O"
         
     elif move == "right" and o == ">-O":
          o = "   "
+         old = "Office"
          e = ">-O"
          
-    elif move == "back" and (e == ">-O" or w == ">-O"):       
+    elif move == "back" and old == "Office":       
+        if e == ">-O":
+            old = "East"
+        if w == ">-O":
+            old = "West"
         o = ">-O"
         e = "   "
         w = "   "
+    
+    elif move == "back" and old == "East":    
+        if d == ">-O":
+            old = "Dining"
+        if o == ">-O":
+            old = "Office"
+        e = ">-O"
+        d = "   "
+        o = "   "
         
     elif move == "left" and w == ">-O":
+        old = "West"
+        s = ">-O"
+        w = "   "
+    
+    elif move == "back" and old == "West":
+        if s == ">-O":
+            old = "Supply"
+        if d == ">-O":
+            old = "Dining"
+        if o == ">-O":
+            old = "Office"
+        w = ">-O"
+        s = "   "
+        o = "   "
+        d = "   "
+
+    elif move == "back" and old == "Supply":   
+        old = "West"
         s = ">-O"
         w = "   "
         
-    elif move == "right" and s == ">-O":
-        w = ">-O"
-        s = "   "
     
     elif move == "up" and (e == ">-O" or w == ">-O"):
+        if e == ">-O":
+            old = "East"
+        if w == ">-O":
+            old = "West"
         d = ">-O"
         e = "   "
         w = "   "
         
+    elif move == "back" and old == "Dining":
+        if e == ">-O":
+            old = "East"
+        if w == ">-O":
+            old = "West"
+        if b == ">-O":
+            old = "Backstage"
+        if t == ">-O":
+            old = "Toilets"
+        d = ">-O"
+        e = "   "
+        w = "   "
+        b = "   "
+        t = "   "
+    
     elif move == "left" and d == ">-O":
+        old = "Dining"
         b = ">-O"
         d = "   "
     
-    elif move == "right" and b == ">-O":
-        d = ">-O"
-        b = "   "
-    
-    elif move == "left" and t == ">-O":
-        d = ">-O"
-        t = "   "
+
+
+  
+    elif move == "right" and d == ">-O":
+        old = "Dining"
+        t = ">-O"
+        d = "   "
     
     elif move == "east" and d == ">-O":
         e = ">-O"
