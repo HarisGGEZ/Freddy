@@ -5,7 +5,9 @@ Skapat av Wille Andersson, Marcus Cheng, Simon Ivarsson och Haris Sheikh
 # Spelets Innehåll
 
 Detta spelet är klassat som ett skräckspel för barn över 12. 
-Spelet innehåller fiktionella figurer som kan kännas skrämmande. Inget dåligt ordspråk samt obehagliga bilder. 
+Spelet innehåller fiktionella figurer som kan kännas skrämmande. Inget dåligt ordspråk eller obehagliga bilder. 
+
+Du ska fly från pizzerian utan att bli dödad av robotarna som går runt i lokalerna. Det finns en dörr ut som kräver tre nycklar för att öppna, dessa nycklar hittar du på platser i pizzerian. Men kom ihåg, robotarnas mål är att hitta dig, så se till att du tar dig ut först. 
 
 # Licens
 
