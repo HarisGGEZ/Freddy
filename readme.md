@@ -9,6 +9,7 @@ Spelet innehåller fiktionella figurer som kan kännas skrämmande. Inget dålig
 
 Du ska fly från pizzerian utan att bli dödad av robotarna som går runt i lokalerna. Det finns en dörr ut som kräver tre nycklar för att öppna, dessa nycklar hittar du på platser i pizzerian. Men kom ihåg, robotarnas mål är att hitta dig, så se till att du tar dig ut först. 
 
+
 # Licens
 
 Copyright (c) 2023 Fredriks Pizzeria
