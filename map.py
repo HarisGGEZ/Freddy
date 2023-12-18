@@ -1,5 +1,5 @@
 
-class map():
+class kartaKlass():
     def __init__(self):
         self.o = ">-O"
         self.e = "   "
@@ -11,7 +11,7 @@ class map():
         self.t = "   "
         self.old = None
         
-    def printMap(self):
+    def printKarta(self):
         print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
                                             ''...............................''                                              
                                             .,.                               .;.    ..  ..                                   
@@ -61,94 +61,120 @@ class map():
                                         ,c,,,,,,,,,,::.  ;c,,,,,,,,,,,c;  .::,,,,,,,,,,c,                                       '''
         )
         
-    def Move(self, move):
         
-        if move == "left" and self.o == ">-O":
+    def flytt(self, flytt):
+        
+        if flytt == "vänster" and self.o == ">-O":
             self.o = "   "
-            self.old = "Office"
+            self.old = "Kontor"
             self.e = "   "
             self.w = ">-O"
             
-        elif move == "right" and self.o == ">-O":
+        elif flytt == "höger" and self.o == ">-O":
             self.o = "   "
-            self.old = "Office"
+            self.old = "Kontor"
             self.e = ">-O"
         
-        elif move == "left" and self.w == ">-O":
-            self.old = "West"
+        elif flytt == "vänster" and self.w == ">-O":
+            self.old = "väst"
             self.s = ">-O"
             self.w = "   "
             
-        elif move == "up" and (self.e == ">-O" or self.w == ">-O"):
+        elif flytt == "fram" and (self.e == ">-O" or self.w == ">-O"):
             if self.e == ">-O":
-                self.old = "East"
+                self.old = "öst"
             if self.w == ">-O":
-                self.old = "West"
+                self.old = "väst"
             self.d = ">-O"
             self.e = "   "
             self.w = "   "
 
-        elif move == "left" and self.e == ">-O":
-            self.old = "East"
+        elif flytt == "vänster" and self.e == ">-O":
+            self.old = "öst"
             self.o = ">-O"
             self.e = "   "
-        elif move == "right" and self.w == ">-O":
-            self.old = "West"
+        
+        elif flytt == "höger" and self.w == ">-O":
+            self.old = "väst"
             self.o = ">-O"
             self.w = "   "
 
-        elif move == "right" and self.s == ">-O":
-            self.old = "Supply"
+        elif flytt == "höger" and self.s == ">-O":
+            self.old = "förråd"
             self.s = "   "
             self.w = ">-O"
             
-        elif move == "left" and self.d == ">-O":
-            self.old = "Dining"
+        elif flytt == "vänster" and self.d == ">-O":
+            self.old = "matsal"
             self.b = ">-O"
             self.d = "   "
 
-        elif move == "right" and self.d == ">-O":
-            self.old = "Dining"
+        elif flytt == "höger" and self.d == ">-O":
+            self.old = "matsal"
             self.t = ">-O"
             self.d = "   "
 
-        elif move == "east" and self.d == ">-O":
-            self.old = "Dining"
-            self.e = ">-O"
-            self.d = "   "
-
-        elif move == "west" and self.d == ">-O":
-            self.old = "Dining"
+        elif flytt == "ner":
+            print("Höger, Vänster eller Kök?")
+            ner = input()
+        
+            if self.d == ">-O" and ner == "vänster":
+                self.old = "matsal"
+                self.e = ">-O"
+                self.d = "   "
+        
+            if self.d == ">-O" and ner == "höger":
+                self.old = "matsal"
+                self.w = ">-O"
+                self.d = "   "
+        
+            if self.d == ">-O" and ner == "kök" :
+                self.old = "matsal"
+                self.k = ">-O"
+                self.d = "   "
+        
+        elif flytt == "höger hall" and self.d == ">-O":
+            self.old = "matsal"
             self.w = ">-O"
             self.d = "   "
 
-        elif move == "right" and self.d == ">-O":
-            self.old = "Dining"
+        elif flytt == "höger" and self.d == ">-O":
+            self.old = "matsal"
             self.t = ">-O"
             self.d = "   "
-
-        elif move == "kitchen" and self.d == ">-O":
-            self.old = "Dining"
+        
+        elif flytt == "höger" and self.b == ">-O":
+            self.old = "verkstad"
+            self.d = ">-O"
+            self.b = "  "
+        
+        elif flytt == "vänster" and self.t == ">-O":
+            self.old = "toaletter"
+            self.d = ">-O"
+            self.t = "  "
+        
+        elif flytt == "kök" and self.d == ">-O":
+            self.old = "matsal"
             self.k = ">-O"
             self.d = "   "
 
-        elif move == "back":
-            if self.old == "Kitchen":
-                self.old = "Dining"
+        elif flytt == "tillbaka":
+            if self.old == "kök":
+                self.old = "matsal"
                 self.k = ">-O"
                 self.d = "   "
 
-            elif self.old == "Dining":
+            elif self.old == "matsal":
                 if self.e == ">-O":
-                    self.old = "East"
+                    self.old = "öst"
                 if self.w == ">-O":
-                    self.old = "West"
+                    self.old = "väst"
                 if self.b == ">-O":
-                    self.old = "Backstage"
+                    self.old = "verkstad"
                 if self.t == ">-O":
-                    self.old = "Toilets"
+                    self.old = "toaletter"
                 if self.k == ">-O":
-                    self.old = "Kitchen"
+                    self.old = "kök"
                 self.d = ">-O"
                 self.e = "   "
                 self.w = "   "
@@ -156,55 +182,76 @@ class map():
                 self.t = "   "
                 self.k = "   "
 
-            elif self.old == "Supply":
-                self.old = "West"
+            elif self.old == "förråd":
+                self.old = "väst"
                 self.s = ">-O"
                 self.w = "   "
             
-            elif self.old == "West":
+            elif self.old == "väst":
                 if self.s == ">-O":
-                    self.old = "Supply"
+                    self.old = "förråd"
                 if self.d == ">-O":
-                    self.old = "Dining"
+                    self.old = "matsal"
                 if self.o == ">-O":
-                    self.old = "Office"
+                    self.old = "Kontor"
                 self.w = ">-O"
                 self.s = "   "
                 self.o = "   "
                 self.d = "   "
         
-            elif self.old == "East":
+            elif self.old == "öst":
                 if self.d == ">-O":
-                    self.old = "Dining"
+                    self.old = "matsal"
                 if self.o == ">-O":
-                    self.old = "Office"
+                    self.old = "Kontor"
                 self.e = ">-O"
                 self.d = "   "
                 self.o = "   "
 
-            elif self.old == "Office":
+            elif self.old == "Kontor":
                 if self.e == ">-O":
-                    self.old = "East"
+                    self.old = "öst"
                 if self.w == ">-O":
-                    self.old = "West"
+                    self.old = "väst"
                 self.o = ">-O"
                 self.e = "   "
                 self.w = "   "
 
-            elif self.old == "Toilets":
-                self.old = "Dining"
+            elif self.old == "toaletter":
+                self.old = "matsal"
                 self.t = ">-O"
                 self.d = "   "
 
-            elif self.old == "Backstage":
-                self.old = "Dining"
+            elif self.old == "verkstad":
+                self.old = "matsal"
                 self.b = ">-O"
                 self.d = "   "
 
+    
+    def printVal(self):
+        
+        if self.o == ">-O":
+            print("Du kan gå \nVänster till Vänstra Hallen \nHöger till Högra Hallen")
+        if self.w == ">-O":
+            print("Du kan gå \nVänster till Förrådet \nHöger till kontoret \nFram till Matsalen ")
+        if self.e == ">-O":
+            print("Du kan gå \nVänster till Kontoret \nFram till Matsalen")
+        if self.s == ">-O":
+            print("Du kan gå \nHöger till Vänstra Hallen")
+        if self.d == ">-O":
+            print("Du kan gå \nVänster till Verkstaden \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nUpp till Utgången (Alla nycklar krävs)")
+        if self.t == ">-O":
+            print("Du kan gå \nVänster till Matsalen")
+        if self.b == ">-O":
+            print("Du kan gå \nHöger till Matsalen")
+        if self.k == ">-O":
+            print("Du kan gå \nTillbaka till Matsalen")
 
-Map = map()
+karta = kartaKlass()
 while True:
     
-    Map.printMap()
-    move = input()
-    Map.Move(move)
+    karta.printKarta()
+    karta.printVal()
+    flytt = input()
+    flytt = flytt.lower()
+    karta.flytt(flytt)
