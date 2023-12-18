@@ -10,6 +10,7 @@ class kartaKlass():
         self.b = "   "
         self.t = "   "
         self.old = None
+        self.location = None
         
     def printKarta(self):
         print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
@@ -66,13 +67,13 @@ class kartaKlass():
         
         if flytt == "vänster" and self.o == ">-O":
             self.o = "   "
-            self.old = "Kontor"
+            self.old = "kontor"
             self.e = "   "
             self.w = ">-O"
             
         elif flytt == "höger" and self.o == ">-O":
             self.o = "   "
-            self.old = "Kontor"
+            self.old = "kontor"
             self.e = ">-O"
         
         elif flytt == "vänster" and self.w == ">-O":
@@ -144,7 +145,7 @@ class kartaKlass():
             self.d = "   "
         
         elif flytt == "höger" and self.b == ">-O":
-            self.old = "verkstad"
+            self.old = "prishörna"
             self.d = ">-O"
             self.b = "  "
         
@@ -170,7 +171,7 @@ class kartaKlass():
                 if self.w == ">-O":
                     self.old = "väst"
                 if self.b == ">-O":
-                    self.old = "verkstad"
+                    self.old = "prishörna"
                 if self.t == ">-O":
                     self.old = "toaletter"
                 if self.k == ">-O":
@@ -203,12 +204,12 @@ class kartaKlass():
                 if self.d == ">-O":
                     self.old = "matsal"
                 if self.o == ">-O":
-                    self.old = "Kontor"
+                    self.old = "kontor"
                 self.e = ">-O"
                 self.d = "   "
                 self.o = "   "
 
-            elif self.old == "Kontor":
+            elif self.old == "kontor":
                 if self.e == ">-O":
                     self.old = "öst"
                 if self.w == ">-O":
@@ -222,7 +223,7 @@ class kartaKlass():
                 self.t = ">-O"
                 self.d = "   "
 
-            elif self.old == "verkstad":
+            elif self.old == "prishörna":
                 self.old = "matsal"
                 self.b = ">-O"
                 self.d = "   "
@@ -233,25 +234,35 @@ class kartaKlass():
         if self.o == ">-O":
             print("Du kan gå \nVänster till Vänstra Hallen \nHöger till Högra Hallen")
         if self.w == ">-O":
-            print("Du kan gå \nVänster till Förrådet \nHöger till kontoret \nFram till Matsalen ")
+            print("Du kan gå \nVänster till Förrådet \nHöger till Kontoret \nFram till Matsalen ")
         if self.e == ">-O":
             print("Du kan gå \nVänster till Kontoret \nFram till Matsalen")
         if self.s == ">-O":
             print("Du kan gå \nHöger till Vänstra Hallen")
         if self.d == ">-O":
-            print("Du kan gå \nVänster till Verkstaden \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nUpp till Utgången (Alla nycklar krävs)")
+            print("Du kan gå \nVänster till Prishörnan \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nUpp till Utgången (Alla nycklar krävs)")
         if self.t == ">-O":
             print("Du kan gå \nVänster till Matsalen")
         if self.b == ">-O":
             print("Du kan gå \nHöger till Matsalen")
         if self.k == ">-O":
             print("Du kan gå \nTillbaka till Matsalen")
-
-karta = kartaKlass()
-while True:
     
-    karta.printKarta()
-    karta.printVal()
-    flytt = input()
-    flytt = flytt.lower()
-    karta.flytt(flytt)
+    def returnPlats(self):
+        if self.o == ">-O":
+            self.location = "kontor"
+        if self.w == ">-O":
+            self.location = "vänster hall"
+        if self.e == ">-O":
+            self.location = "höger hall"
+        if self.s == ">-O":
+            self.location = "förråd"
+        if self.d == ">-O":
+           self.location = "matsal"
+        if self.t == ">-O":
+          self.location = "toaletter"
+        if self.b == ">-O":
+            self.location = "prishörna"
+        if self.k == ">-O":
+            self.location = "kök"
+        return self.location
