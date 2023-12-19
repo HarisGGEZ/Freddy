@@ -46,8 +46,6 @@ def intro():
 
 
 def options():
-    global cheats
-    global switch
     print(f"1-Fusk {switch}")
     print(f"2-Svårhet [{difficulty}]")
     print("3-Tutorial")
@@ -88,8 +86,6 @@ def diff():
         diff()
     
 def play():
-    global coins
-    global valvkod
     if difficulty == 1:
         valvkod = random.randint(1000, 9999)
     elif difficulty == 2:
@@ -148,7 +144,6 @@ def easthall():
     easthall = False
 
 def supplycloset():
-    global valvtom
     supplycloset = True
     print("\nDu är i supplycloset")
     print("Du ser ett kassavalv")
@@ -174,9 +169,6 @@ def supplycloset():
 
 
 def kitchen():
-    global valvkod
-    global nummerlapp
-    global coins
     kitchen = True
     while True:
         svar = input("\nDu är i köket. Vad vill du göra? \ntillbaks/letarunt \n")
@@ -220,7 +212,6 @@ def restrooms():
 
 
 def prizecorner():
-    global coins
     print("Du befinner dig i prishörnan du ser en nyckel som kostar 50 coins")
     svar = input("Vad vill du göra? \n tillbaks \n nyckel")
     while True:
