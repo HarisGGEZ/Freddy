@@ -11,6 +11,8 @@ class kartaKlass():
         self.t = "   "
         self.old = None
         self.location = None
+        self.hunt = False
+        self.steps = 0
         
     def printKarta(self):
         print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
@@ -247,6 +249,7 @@ class kartaKlass():
             print("Du kan gå \nHöger till Matsalen")
         if self.k == ">-O":
             print("Du kan gå \nTillbaka till Matsalen")
+        print("\n")
     
     def returnPlats(self):
         if self.o == ">-O":
@@ -266,3 +269,20 @@ class kartaKlass():
         if self.k == ">-O":
             self.location = "kök"
         return self.location
+    
+    
+
+    def jagad(self, room):
+        print(self.hunt)
+        if room == "same":
+            self.hunt = True
+        if self.hunt == True:
+            return True
+        
+
+
+    def run(self):
+        print(self.steps)
+        if self.hunt == True and self.o != ">-O":
+            self.steps = self.steps + 1
+        return self.steps
