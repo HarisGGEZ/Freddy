@@ -26,7 +26,7 @@ tkey = False
 
 
 def inventory():
-    print("Inventory:\n")
+    print("I din väska:\n")
     if coins > 1:
         print(f"Mynt: {coins} st\n")
     if keys > 1:
@@ -46,6 +46,8 @@ def intro():
 
 
 def options():
+    global switch
+    global difficulty
     print(f"1-Fusk {switch}")
     print(f"2-Svårhet [{difficulty}]")
     print("3-Tutorial")
@@ -97,85 +99,34 @@ def play():
     print("Du måste nu fly från pizzerian \n Du kommer få alternative på vilka rum du kan gå till \n Du måste hitta 3 nycklar för att komma ut, lycka till")
     office()
 
-def office():
-    office = True
-    print("Du befinner dig i security rummet")
-    print("Du kan gå \nvänster\nhöger")
-    while True:
-        direction = input("Vart vill du gå? \n")
-        direction = direction.lower()
-        if direction == "höger":
-            easthall()
-            break      
-        elif direction == "vänster":
-            westhall()
-            break
-        elif direction == "m":
-            print(officem)
-        elif direction == "inv":
-            inventory()
-        office = False
-
-def westhall():
-    westhall = True
-    print("Du befinner dig vänster om kontoret")
-    direction = input("Vart vill du gå? \nfram\ntillbaks\nförråd")
-    direction = direction.lower()
-    if direction == "fram":
-        diningroom()
-    elif direction == "tillbaks":
-        ()
-    elif direction == "förråd":
-        supplycloset()
-    easthall = False
-
-
-
-def easthall():
-    easthall = True
-    print("\nDu befinner dig höger om kontoret")
-    print("Du kan gå \nFram\nTillbaks")
-    direction = input("Vart vill du gå? \n")
-    direction = direction.lower()
-    if direction == "fram":
-        diningroom()
-    elif direction == "tillbaks":
-        ()
-    easthall = False
-
 def supplycloset():
+    global valvtom
     supplycloset = True
     print("\nDu är i supplycloset")
     print("Du ser ett kassavalv")
-    svar = input("\nVad vill du göra? \n lämna \n kassavalv\n")
-    if svar == "lämna":
-        westhall()
-    elif svar == "kassavalv":
-        while True:
-            svar = input("Hmmmm, här behövs en kod. Gissa kod? ja/nej")
-            if svar == "nej":
-                (westhall)
+    svar = input("Hmmmm, här behövs en kod. Gissa kod? ja/nej")
+    if svar == "nej":
+        (westhall)
+        break
+    elif svar == "ja" and valvtom == False:
+        kodsvar = input("Kod:")
+        if kodsvar == valvkod:
+                print("Grattis du hittade en nyckel")
+                keys = keys+1
+                valvtom = True
                 break
-            elif svar == "ja" and valvtom == False:
-                kodsvar = input("Kod:")
-                if kodsvar == valvkod:
-                    print("Grattis du hittade en nyckel")
-                    keys = keys+1
-                    valvtom = True
-                    break
-            elif svar == "ja" and valvtom == True:
-                print("Valvet är tomt")
-                break
+        elif svar == "ja" and valvtom == True:
+            print("Valvet är tomt")
+            break
 
 
 def kitchen():
+    global coins
+    global nummerlapp
     kitchen = True
     while True:
-        svar = input("\nDu är i köket. Vad vill du göra? \ntillbaks/letarunt \n")
-        if svar == "tillbaks":
-            diningroom()
-            break
-        elif svar == "letarunt" and nummerlapp == True:
+        svar = input("\nDu är i köket. Vad vill du göra? letarunt \n")
+        if svar == "letarunt" and nummerlapp == True:
             print("Det finns inget här")
         elif svar == "letarunt":
             print(f"Du hittade 13 coins och en lapp med numret {valvkod}")
@@ -184,23 +135,8 @@ def kitchen():
             nummerlapp = True
         
     
-def diningroom():
-    diningroom = True
-    print("\nDu befinner dig nu i party rummet här finns många rum så tappa inte bort dig")
-    direction = input("Vart vill du gå? \nköket \nbackstage \nexit \nToa")
-    if direction == "exit":
-        escape()
-    elif direction == "köket":
-        kitchen()
-    elif direction == "prishörnet":
-        prizecorner()
-    elif direction == "toa":
-        restrooms()
-    
 def restrooms():
-    svar = input("Vad vill du göra? \n tillbaks")
-    if svar == "tillbaks":
-        diningroom()
+    svar = input("Du befinner dig på toaletten")
     if tkey == False:
         print("You found a key +1 key")
         keys = keys + 1
@@ -208,8 +144,6 @@ def restrooms():
     elif tkey == True:
         print("There is nothing here")
     
-
-
 
 def prizecorner():
     print("Du befinner dig i prishörnan du ser en nyckel som kostar 50 coins")
@@ -253,8 +187,3 @@ def death():
     time.sleep(5)
     intro()
 
-
-while True:
-    intro()
-    if office == True:
-        currentmap = officem
