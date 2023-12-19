@@ -1,46 +1,80 @@
 from random import choice
-Location = "Stage"
-OldLocation = "Stage"
 
 
 
-
-class bonnie():
+class Bonnie():
     
     def __init__(self):
-        self.location = "Stage"
+        self.location = "scen"
         self.old = None
     
     def move(self):
-        if self.location == "Stage":
-            self.location = "Dining Area"
-            self.old = "Stage"
-        elif self.location == "Dining Area":
-            self.location = choice([self.location, "Stage", "East Hall", "Backstage" ])
-            self.old = "Dining Area"
-        elif self.location ==  "Backstage":
-            self.location = choice([self.location, "Dining Area"])
-            self.old = "Backstage"
-        elif self.location == "East Hall":
-            self.location = choice([self.location, "Dining Area", "Supply Closet"])
-            self.old = "East Hall"
-        elif self.location == "Supply Closet":
-            self.location = choice([self.location, "East Hall"])
-            self.old = "Supply Closet"
+        if self.location == "scen":
+            self.location = "matsal"
+            self.old = "scen"
+        elif self.location == "matsal":
+            self.location = choice([self.location, "scen", "höger hall", "prishörna" ])
+            self.old = "matsal"
+        elif self.location ==  "prishörna":
+            self.location = choice([self.location, "matsal"])
+            self.old = "prishörna"
+        elif self.location == "höger hall":
+            self.location = choice([self.location, "matsal", "förråd"])
+            self.old = "höger hall"
+        elif self.location == "förråd":
+            self.location = choice([self.location, "höger hall"])
+            self.old = "förråd"
         
+        
+    def printMove(self):
         if self.old != self.location:
-            print(f"Bonnie moved from {self.old} to {self.location}")
+            print(f"Bonnie flyttade sig från {self.old} till {self.location}")
         else:
-            print(f"Bonnie stays in {self.old}")
+            print(f"Bonnie stannar i {self.old}")
         
-Bonnie = bonnie()
+class Fredrik():
 
+    def __init__(self):
+        self.location = "scen"
+        self.old = None
 
-
-
-while True:
+    def move(self):
+        if self.location == "scen":
+            self.location = "matsal"
+            self.old = "scen"
+        elif self.location == "matsal":
+            self.location = choice([self.location, "scen", "höger hall", "prishörna", "vänster hall", "toaletter", "kök"])
+            self.old = "matsal"
+        elif self.location == "vänster hall":
+             self.location = choice([self.location, "matsal"])
+             self.old = "vänster hall"
+        elif self.location == "toaletter":
+            self.location = choice([self.location, "matsal"])
+            self.old = "toaletter"
+        elif self.location == "kök":
+            self.location = choice([self.location, "matsal"])
+            self.old = "kök"
+        elif self.location ==  "prishörna":
+            self.location = choice([self.location, "matsal"])
+            self.old = "prishörna"
+        elif self.location == "höger hall":
+            self.location = choice([self.location, "matsal", "förråd"])
+            self.old = "höger hall"
+        elif self.location == "förråd":
+            self.location = choice([self.location, "höger hall"])
+            self.old = "förråd" 
     
-    test = input("")
-    if test == "1":
-        Bonnie.move()
+    def returnLocation(self):
+        return self.location
+    
+    def printMove(self):
+        if self.old != self.location:
+            print(f"Fredrik flyttade sig från {self.old} till {self.location}")
+        else:
+            print(f"Fredrik stannar i {self.old}")
+
+
+
+
+
 
