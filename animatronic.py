@@ -69,12 +69,8 @@ class Fredrik():
     
     def printMove(self):
         if self.old != self.location:
-            print(f"Fredrik flyttade sig från {self.old} till {self.location}")
+            print(f"\nFredrik flyttade sig från {self.old} till {self.location}\n")
         else:
-            print(f"Fredrik stannar i {self.old}")
-
-
-
-
+            print(f"\nFredrik stannar i {self.old}\n")
 
 
