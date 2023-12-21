@@ -1,5 +1,6 @@
 import random
 import time
+import asciimodule
 
 office = False
 westhall = False
@@ -14,6 +15,7 @@ restrooms = False
 escape = False
 
 #temp values
+cheat_text = False
 nummerlapp = False
 difficulty = 1
 keys = 0
@@ -46,7 +48,7 @@ def intro():
 
 
 def options():
-    global switch
+    global fusk
     global difficulty
     print(f"1-Fusk {switch}")
     print(f"2-Svårhet [{difficulty}]")
@@ -57,11 +59,11 @@ def options():
         hacks = input("Fusk? ja/nej \n")
         if hacks == "ja":
             cheats = True
-            switch = "på"
+            fusk = "på"
             options()
         if hacks == "nej":
             cheats = False
-            switch = "av"
+            fusk = "av"
             options()     
     elif svar == "2":
         diff()
@@ -88,6 +90,7 @@ def diff():
         diff()
     
 def play():
+    global cheat_text
     if difficulty == 1:
         valvkod = random.randint(1000, 9999)
     elif difficulty == 2:
@@ -95,8 +98,9 @@ def play():
     elif difficulty == 3:
         valvkod = random.randint(100000, 999999)
     if cheats == True:
+        cheat_text == True
         coins = 999
-    print("Du måste nu fly från pizzerian \n Du kommer få alternative på vilka rum du kan gå till \n Du måste hitta 3 nycklar för att komma ut, lycka till")
+    print("lycka till")
     office()
 
 def supplycloset():
@@ -130,7 +134,7 @@ def kitchen():
             print("Det finns inget här")
         elif svar == "letarunt":
             print(f"Du hittade 13 coins och en lapp med numret {valvkod}")
-            coins = coins + 16
+            coins = coins + 1
             print("+1 nummer lapp")
             nummerlapp = True
         
@@ -138,30 +142,46 @@ def kitchen():
 def restrooms():
     svar = input("Du befinner dig på toaletten")
     if tkey == False:
-        print("You found a key +1 key")
+        print("Du hittade en nyckel +1 nyckel")
         keys = keys + 1
         tkey == True
+    svar1 = input("Vill du leta vidare? ja/nej")
+    if svar == "ja" and tcoin == False:
+        print("Du letade runt i toaletten och hittade")
+
+
+        
+
     elif tkey == True:
-        print("There is nothing here")
+        print("Det finns inget här")
+        time.sleep(1)
     
 
 def prizecorner():
     print("Du befinner dig i prishörnan du ser en nyckel som kostar 50 coins")
     svar = input("Vad vill du göra? \n tillbaks \n nyckel")
     while True:
-        if svar == "nyckel" and coins == 50:
+        if svar == "nyckel" and coins == 3:
             svar = input("Vill du köpa nyckeln ja/nej")
         else:
             print(f"Du har inte råd du har {coins}coins")
         if svar == "ja":
             keys = keys + 1
-            coins = coins - 50
+            coins = coins - 3
             break
         elif svar == "nej":
             break
-        elif svar == "nyckel" and coins < 50:
+        elif svar == "nyckel" and coins < 3:
             print("Du har inte tillräkligt med coins")
             break
+
+def diningroom():
+    indining = indining + 1
+    if indining < 1:
+        print("Du hittade ett mynt! +1 mynt")
+        coins = coins + 1
+    if indining > 2:
+        end
 
 
 
