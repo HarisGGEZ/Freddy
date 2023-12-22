@@ -1,3 +1,4 @@
+#rullande text
 import sys
 import time
 def print_slow(str):
@@ -5,7 +6,7 @@ def print_slow(str):
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.05)
-
+# Funktioner som kallas när en specifik ascii art ska visas
 def huvt ():
     print(""" ______               _        _  _           _____  _                       _        
 |  ____|             | |      (_)| |         |  __ \(_)                     (_)       
@@ -26,7 +27,7 @@ huvt()
 
 
 
-# Funktioner som kallas när en specifik ascii art ska visas
+
 def FredrikSrkämm():
     print(''' ⣿⣿⣿⣿⣿⣿⡿⠿⠟⠛⡛⠛⠛⠻⢿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠿⠿⠿⡿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿
@@ -60,5 +61,18 @@ def FredrikSrkämm():
 def ChicaSkrämm():
     print('''  ''')
 
+def death():
+    print('''\033[91m
+    
+    ██████╗ ██╗   ██╗    ██████╗  ██████╗  ██████╗ 
+    ██╔══██╗██║   ██║    ██╔══██╗██╔═══██╗██╔════╝ 
+    ██║  ██║██║   ██║    ██║  ██║██║   ██║██║  ███╗
+    ██║  ██║██║   ██║    ██║  ██║██║   ██║██║   ██║
+    ██████╔╝╚██████╔╝    ██████╔╝╚██████╔╝╚██████╔╝
+    ╚═════╝  ╚═════╝     ╚═════╝  ╚═════╝  ╚═════╝ 
+                                               
 
-FredrikSrkämm()
+    \033[0m''')
+
+death()
+
