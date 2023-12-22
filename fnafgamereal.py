@@ -100,6 +100,7 @@ def play():
     if cheats == True:
         cheat_text == True
         coins = 999
+        robots == False
     print("lycka till")
     office()
 
@@ -108,7 +109,7 @@ def supplycloset():
     supplycloset = True
     print("\nDu är i supplycloset")
     print("Du ser ett kassavalv")
-    svar = input("Hmmmm, här behövs en kod. Gissa kod? ja/nej")
+    svar = input("Hmmmm, här behövs en kod. \n Vill du gissa koden? ja/nej")
     if svar == "nej":
         (westhall)
         break
@@ -119,6 +120,8 @@ def supplycloset():
                 keys = keys+1
                 valvtom = True
                 break
+        elif kodsvar /= valvkod
+            print("Felkod")
         elif svar == "ja" and valvtom == True:
             print("Valvet är tomt")
             break
@@ -148,10 +151,6 @@ def restrooms():
     svar1 = input("Vill du leta vidare? ja/nej")
     if svar == "ja" and tcoin == False:
         print("Du letade runt i toaletten och hittade")
-
-
-        
-
     elif tkey == True:
         print("Det finns inget här")
         time.sleep(1)
@@ -180,8 +179,9 @@ def diningroom():
     if indining < 1:
         print("Du hittade ett mynt! +1 mynt")
         coins = coins + 1
-    if indining > 2:
-        end
+    elif indining > 2:
+        return
+    
 
 
 
