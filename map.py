@@ -1,3 +1,5 @@
+from time import sleep
+
 
 class kartaKlass():
     def __init__(self):
@@ -10,7 +12,7 @@ class kartaKlass():
         self.b = "   "
         self.t = "   "
         self.old = None
-        self.location = None
+        self.location = "kontoret"
         self.hunt = False
         self.steps = 0
         
@@ -18,11 +20,11 @@ class kartaKlass():
         print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
                                             ''...............................''                                              
                                             .,.                               .;.    .............                                   
-                                            .,.                               .,.    ',\033[91mUtgång\033[0m         .,.                                  
+                                            .,.                               .,.    ', \033[91mUtgång\033[0m  .,.                                  
                                             .,.                               .;.    ',         .,.                                  
                                             .:'                               ':.    ,,         .;.                                  
         .,'.........,.  .,..................','...............................','....'.          ...,'                         
-        .,\033[91mPrishörnan\033[0m      ,:..;'                              \033[91mMatsal\033[0m                               .,                         
+        .,  \033[91mPrishörnan\033[0m                                                                            .,                         
         .,                                                                                         .,     .......             
         .,          ,;..;'                                                                         .,  .,,......;'            
         .,          ,'  ''                                                                         .,  .,.      .,            
@@ -30,8 +32,8 @@ class kartaKlass():
         .,          ,'  ''                                                                                     .,            
         .,          ,'  ''                                                                                      .,   .........
         .,          ,'  ''                                                                         .:..,:.      ':..,c'......:
-        .:..........;'  ''                                                                         .,  .,.      ':..,:.      ,
-            ............   ''                                {self.d}                                   .,  .,.      ':'.;:.      ,
+        .:..........;'  ''                              \033[91mMatsal\033[0m                                     .,  .,.      ':..,:.      ,
+        ............   ''                                {self.d}                                       .,  .,.      ':'.;:.      ,
                         ..,,                                                                       .,  .,. {self.t}  ';..':,......:
             .,,.........:,                                                                         .,  .,.      .,   .........
             .,.         ''                                                                         .,  .,.      .,            
@@ -43,10 +45,10 @@ class kartaKlass():
             ...........;:...................      .............................       .........   ....;,  .,,......;,  .,,...;
                            .................      .............................       .......,:   :,..                   ..     
                                         .'          '.                     .'          '.   .;;   ;,.................'.         
-                                        ,,          .;.                   .;.          ,,   ,,      \033[91mKöket\033[0m ,,         
+                                        ,,          .;.                   .;.          ,,   ,,         \033[91mKöket\033[0m         ,,         
                         ............   ,'          .,.                   .,.          ',   ''                       ''         
                         ';.........';.  ,'          .,.                   .,.          ',   ''                       ',         
-                        ''\033[91mFörråd\033[0m         .,.  ,'          .,.                   .,.          ',   ''                       ',         
+                        '' \033[91mFörråd\033[0m  .,.  ,'          .,.                   .,.          ,'   ''                        ',         
                         ',         .,.  ,'          .,.                   .,.          ',   ''        {self.k}           ',         
                         ',         .;;..;'          .,.                   .,.          ',   ''                       ',         
                         ',                          .,.                   .,.          ',   ''                       ''         
@@ -54,7 +56,7 @@ class kartaKlass():
                         ''         .;;..;'          .,.                   .,.          ',   ,,                       ,,         
                         ''         .,.  ,'          .,.   .............   .,.          ',   .'.......................'.         
                         ''         .,.  ,'          .,.  ,;...........;,  .;.          ',                                       
-                        ';.........';.  ,'          .,.  ,' \033[91mKontor\033[0m          .,  .,.          ',                                       
+                        ';.........';.  ,'          .,.  ,'  \033[91mKontor\033[0m          .,  .,.          ',                                       
                         ...........    ,'          .,.  ,'           ',  .,.          ',                                       
                                         ,'          .;,..:'           ':'.,;.          ',                                       
                                         ,'    {self.w}              {self.o}              {self.e}    ',                                       
@@ -117,10 +119,13 @@ class kartaKlass():
             self.t = ">-O"
             self.d = "   "
 
+        elif flytt == "upp" and self.d == ">-O":
+            return "exit attempt"
+
         elif flytt == "ner":
             print("Höger, Vänster eller Kök?")
             ner = input()
-        
+
             if self.d == ">-O" and ner == "vänster":
                 self.old = "matsal"
                 self.e = ">-O"
@@ -232,64 +237,69 @@ class kartaKlass():
 
     
     def printVal(self):
-        
+        Plats = self.location.capitalize()
+        print(f"\nDu befinner dig i {Plats}. \nDu kan gå:")
+        sleep(0.5)
         if self.o == ">-O":
-            print("Du kan gå \nVänster till Vänstra Hallen \nHöger till Högra Hallen")
+            print("Vänster till Vänstra Hallen \nHöger till Högra Hallen")
         if self.w == ">-O":
-            print("Du kan gå \nVänster till Förrådet \nHöger till Kontoret \nFram till Matsalen ")
+            print("Vänster till Förrådet \nHöger till Kontoret \nFram till Matsalen ")
         if self.e == ">-O":
-            print("Du kan gå \nVänster till Kontoret \nFram till Matsalen")
+            print("Vänster till Kontoret \nFram till Matsalen")
         if self.s == ">-O":
-            print("Du kan gå \nHöger till Vänstra Hallen")
+            print("Höger till Vänstra Hallen")
         if self.d == ">-O":
-            print("Du kan gå \nVänster till Prishörnan \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nUpp till Utgången (Alla nycklar krävs)")
+            print("Vänster till Prishörnan \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nUpp till Utgången (Alla nycklar krävs)")
         if self.t == ">-O":
-            print("Du kan gå \nVänster till Matsalen")
+            print("Vänster till Matsalen")
         if self.b == ">-O":
-            print("Du kan gå \nHöger till Matsalen")
+            print("Höger till Matsalen")
         if self.k == ">-O":
-            print("Du kan gå \nTillbaka till Matsalen")
-        if self.l == ">-O":
-            print("Du kan gå \nTillbaka till Matsalen")
+            print("Tillbaka till Matsalen")
+        #if self.l == ">-O":
+            #print(" \nTillbaka till Matsalen")
         print("\n")
     
     def returnPlats(self):
         if self.o == ">-O":
-            self.location = "kontor"
+            self.location = "kontoret"
         if self.w == ">-O":
             self.location = "vänster hall"
         if self.e == ">-O":
             self.location = "höger hall"
         if self.s == ">-O":
-            self.location = "förråd"
+            self.location = "förrådet"
         if self.d == ">-O":
-           self.location = "matsal"
+           self.location = "matsalen"
         if self.t == ">-O":
-          self.location = "toaletter"
+          self.location = "toaletterna"
         if self.b == ">-O":
-            self.location = "prishörna"
+            self.location = "prishörnan"
         if self.k == ">-O":
-            self.location = "kök"
-        if self.l == ">-O":
-            self.location = "utgång"
+            self.location = "köket"
+        #if self.l == ">-O":
+            #self.location = "utgång"
         return self.location
     
-    
-
     def jagad(self, room):
-        print(self.hunt)
         if room == "same":
             self.hunt = True
+            print("Fredrik såg dig!! Skynda dig tillbaka till kontoret!\n")
         if self.hunt == True:
             return True
-        
-
+        else:
+            return False
 
     def run(self):
-        print(self.steps)
         if self.hunt == True and self.o != ">-O":
             self.steps = self.steps + 1
+            print("Fredrik Jagar dig!\n")
+        if self.o == ">-O":
+            self.steps = 0
+            print("Du hann undan\n")
+            self.hunt = False
         return self.steps
+
 
 
 

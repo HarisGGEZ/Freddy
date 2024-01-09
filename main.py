@@ -1,37 +1,69 @@
 import map
 import animatronic
 import fnafgamereal
+import asciimodule
 from playsound import playsound
+from time import sleep
+Alive = True
 Jagad = False
-
+kodAnvand = False
+letatKok = False
+letatToalett = False
 karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
-
-
+#asciimodule.huvt()
 
 
 while True:
-    karta.printVal()
-    val = input()
-    val = val.lower()
-    if val == "karta":
-        karta.printKarta()
-    if val == "väska":
-        fnafgamereal.inventory()
-    if val == "höger" or val ==  "vänster" or val ==  "tillbaka"  or val ==  "fram" or  val == "kök" or val ==  "ner" or val == "stanna":
-        karta.flytt(val)
-        if karta.jagad("") == True:
-            if karta.run() == 5:
-                playsound('/audio/freddy.mp3')
-                print("dead")
-                break
-        fredrik.move()
-    fredrik.printMove()
-    if fredrik.returnLocation() == karta.returnPlats():
-        karta.jagad("same")
-    #if karta.jagad("") == True:
-        #Jagad = True
+    while Alive:
+        karta.printVal()
+        val = input()
+        val = val.lower()
+        if val == "karta":
+            karta.printKarta()
+        if val == "väska":
+            fnafgamereal.inventory()
+        if val == "höger" or val ==  "vänster" or val ==  "tillbaka"  or val ==  "fram" or  val == "kök" or val ==  "ner" or val == "stanna" or val == "upp":
+            if karta.flytt(val) == "exit attempt":
+                if fnafgamereal.exit() == True:
+                    print("Du lyckades fly!")
+                    Alive = False
+                else:
+                    print("Du har inte alla nycklar")
+
+            if karta.jagad("") == True:
+                if karta.run() == 4:
+                    #playsound('freddy.mp3')
+                    print("dead")
+                    Alive = False
+            else:
+                fredrik.move()
+                fredrik.printMove()
+        if karta.returnPlats() == "förrådet" and kodAnvand == False:
+            if fnafgamereal.supplycloset() == "used":
+                kodAnvand = True
+        if karta.returnPlats() == "köket" and letatKok == False:
+            if fnafgamereal.kitchen() == "found":
+                letatKok = True
+        if karta.returnPlats() == "toaletterna" and letatToalett == False:
+            if fnafgamereal.restrooms() == "found":
+                letatToalett = True
+        if fredrik.returnLocation() == karta.returnPlats() and karta.jagad("") == False:
+            karta.jagad("same")
+            playsound("alert.mp3")
+        sleep(0.5)
     
+    if Alive == False:
+        retry = input("du dog? spela igen?\n")
+        if retry == "ja":
+            Alive = True
+            karta = map.kartaKlass()
+            fredrik = animatronic.Fredrik()
+            Jagad = False
+            kodAnvand = False
+            letatKok = False
+            letatToalett = False
+
     
   

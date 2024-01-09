@@ -18,9 +18,9 @@ def huvt ():
                                                                                                 """)
                                                                                                 
     print_slow("\n Du befinner dig i Fredriks pizzaria och råkade fastna i pizzarian.\n Du hörde att det är dödliga robotar där och du ska försöka fly utan att dö.\n Ditt jobb är att leta runt pizzarian för ett sätt att fly.\n Om robotarna hittar dig då ska du försöka gå till kontoret så fort som möjligt.\n Lyckatill")
-    print_slow("""\n Om du vill veta vart du befinner dig i kartan så skriv "karta" om du vill se kartan.\n Om du vill veta vad du har på dig så kan du skriva "väska" för att veta vad du har. """)
+    print_slow("""\n Om du vill veta vart du befinner dig i kartan så skriv "karta" om du vill se kartan.\n Om du vill veta vad du har på dig så kan du skriva "väska" för att veta vad du har.\n""")
     
-huvt()
+#huvt()
 
 
 
@@ -74,5 +74,5 @@ def death():
 
     \033[0m''')
 
-death()
+#death()
 

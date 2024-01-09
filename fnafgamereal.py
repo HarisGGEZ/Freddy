@@ -13,6 +13,7 @@ showstage = False
 kitchen = False
 restrooms = False
 escape = False
+inventoryList = []
 
 #temp values
 cheat_text = False
@@ -31,10 +32,12 @@ def inventory():
     print("I din väska:\n")
     if coins > 1:
         print(f"Mynt: {coins} st\n")
-    if keys > 1:
-        print(f"Nycklar: {keys} st\n")
-    if valvkod == True:
-        print(valvkod)
+    inventoryList.sort()
+    print(*inventoryList, sep="\n")
+
+def exit():
+    if "Nyckel 1" in inventoryList and "Nyckel 2" in inventoryList:
+        return True
 
 def intro():
     print("Välkommen till fredriks")
@@ -89,6 +92,24 @@ def diff():
         print("snälla skriv ett nummer mellan 1-3")
         diff()
     
+def inventoryAdd(object):
+    inventoryList.append(object)
+
+    
+
+def codeUsed():
+    CodeReal = "used"
+    return CodeReal
+
+
+CodeReal = str(random.randint(1000, 9999))
+print(CodeReal)
+
+#def keys():
+    #ClosetKey = False
+    #Keys = [ClosetKey]
+    #return Keys
+
 def play():
     global cheat_text
     if difficulty == 1:
@@ -104,56 +125,53 @@ def play():
     print("lycka till")
     office()
 
-def supplycloset():
-    global valvtom
-    supplycloset = True
-    print("\nDu är i supplycloset")
-    print("Du ser ett kassavalv")
-    svar = input("Hmmmm, här behövs en kod. \n Vill du gissa koden? ja/nej")
-    if svar == "nej":
-        (westhall)
-        break
-    elif svar == "ja" and valvtom == False:
-        kodsvar = input("Kod:")
-        if kodsvar == valvkod:
-                print("Grattis du hittade en nyckel")
-                keys = keys+1
-                valvtom = True
-                break
-        elif kodsvar /= valvkod
-            print("Felkod")
-        elif svar == "ja" and valvtom == True:
-            print("Valvet är tomt")
-            break
+def supplycloset():  
+            print(CodeReal)
+            print("\nDu är i förrådet")
+            print("Du ser ett kassavalv")
+            svar = input("Hmmmm, här behövs en kod. \nVill du gissa koden? ja/nej\n")
+            if svar == "ja":
+                print(CodeReal)
+                kodsvar = input("Kod: ")
+                if kodsvar == CodeReal:
+                        print("Grattis du hittade en nyckel")
+                        inventoryAdd("Nyckel 1")
+                        return "used"       
+                elif kodsvar != CodeReal:
+                    print(CodeReal)
+                    print("Fel kod")
+            
 
 
 def kitchen():
-    global coins
-    global nummerlapp
-    kitchen = True
-    while True:
         svar = input("\nDu är i köket. Vad vill du göra? letarunt \n")
-        if svar == "letarunt" and nummerlapp == True:
-            print("Det finns inget här")
-        elif svar == "letarunt":
-            print(f"Du hittade 13 coins och en lapp med numret {valvkod}")
-            coins = coins + 1
-            print("+1 nummer lapp")
-            nummerlapp = True
+        #if svar == "letarunt":
+            #print("Det finns inget här")
+        if svar == "letarunt":
+            print(f"Du hittade 13 coins och en lapp med numret {CodeReal}")
+            inventoryAdd("Lapp med nummret " + CodeReal)
+            return "found"
+            
+
         
     
 def restrooms():
-    svar = input("Du befinner dig på toaletten")
-    if tkey == False:
-        print("Du hittade en nyckel +1 nyckel")
-        keys = keys + 1
-        tkey == True
-    svar1 = input("Vill du leta vidare? ja/nej")
-    if svar == "ja" and tcoin == False:
-        print("Du letade runt i toaletten och hittade")
-    elif tkey == True:
-        print("Det finns inget här")
-        time.sleep(1)
+    svar = input("Du befinner dig på toaletten, vill du leta runt?")
+    if svar == "ja":
+        print("Du hittade en nyckel")
+        inventoryAdd("Nyckel 2")
+        return "found"
+
+    #if tkey == False:
+        #print("Du hittade en nyckel +1 nyckel")
+        #keys = keys + 1
+        #tkey == True
+    #svar1 = input("Vill du leta vidare? ja/nej")
+    #if svar == "ja" and tcoin == False:
+        #print("Du letade runt i toaletten och hittade")
+    #elif tkey == True:
+        #print("Det finns inget här")
+        #time.sleep(1)
     
 
 def prizecorner():
