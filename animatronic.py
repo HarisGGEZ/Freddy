@@ -13,16 +13,16 @@ class Bonnie():
             self.location = "matsalen"
             self.old = "scen"
         elif self.location == "matsalen":
-            self.location = choice([self.location, "scen", "höger hall", "prishörnan" ])
+            self.location = choice([self.location, "scen", "vänster hall", "prishörnan" ])
             self.old = "matsalen"
         elif self.location ==  "prishörnan":
             self.location = choice([self.location, "matsalen"])
             self.old = "prishörnan"
-        elif self.location == "höger hall":
+        elif self.location == "vänster hall":
             self.location = choice([self.location, "matsalen", "förrådet"])
-            self.old = "höger hall"
+            self.old = "vänster hall"
         elif self.location == "förrådet":
-            self.location = choice([self.location, "höger hall"])
+            self.location = choice([self.location, "vänster hall"])
             self.old = "förrådet"
         
         
@@ -43,11 +43,11 @@ class Fredrik():
             self.location = "matsalen"
             self.old = "scen"
         elif self.location == "matsalen":
-            self.location = choice([self.location, "scen", "höger hall", "prishörnan", "vänster hall", "toaletterna", "köket"])
+            self.location = choice([self.location, "scen", "vänster hall", "prishörnan", "höger hall", "toaletterna", "köket"])
             self.old = "matsalen"
-        elif self.location == "vänster hall":
+        elif self.location == "höger hall":
              self.location = choice([self.location, "matsalen"])
-             self.old = "vänster hall"
+             self.old = "höger hall"
         elif self.location == "toaletterna":
             self.location = choice([self.location, "matsalen"])
             self.old = "toaletterna"
@@ -57,11 +57,11 @@ class Fredrik():
         elif self.location ==  "prishörnan":
             self.location = choice([self.location, "matsalen"])
             self.old = "prishörnan"
-        elif self.location == "höger hall":
+        elif self.location == "vänster hall":
             self.location = choice([self.location, "matsalen", "förrådet"])
-            self.old = "höger hall"
+            self.old = "vänster hall"
         elif self.location == "förrådet":
-            self.location = choice([self.location, "höger hall"])
+            self.location = choice([self.location, "vänster hall"])
             self.old = "förrådet" 
     
     def returnLocation(self):
