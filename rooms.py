@@ -2,17 +2,6 @@ import random
 import time
 import asciimodule
 
-office = False
-westhall = False
-easthall = False
-supplycloset = False
-diningroom = False
-piratecove = False
-backstage = False
-showstage = False
-kitchen = False
-restrooms = False
-escape = False
 inventoryList = []
 
 #temp values
@@ -25,7 +14,7 @@ switch = "av"
 valvkod = 0
 valvtom = False
 coins = 0
-tkey = False
+
 
 
 def inventory():
@@ -103,12 +92,6 @@ def codeUsed():
 
 
 CodeReal = str(random.randint(1000, 9999))
-print(CodeReal)
-
-#def keys():
-    #ClosetKey = False
-    #Keys = [ClosetKey]
-    #return Keys
 
 def play():
     global cheat_text
@@ -145,14 +128,11 @@ def supplycloset():
 
 def kitchen():
         svar = input("\nDu är i köket. Vad vill du göra? letarunt \n")
-        #if svar == "letarunt":
-            #print("Det finns inget här")
         if svar == "letarunt":
             print(f"Du hittade 13 coins och en lapp med numret {CodeReal}")
             inventoryAdd("Lapp med nummret " + CodeReal)
             return "found"
             
-
         
     
 def restrooms():
@@ -161,17 +141,6 @@ def restrooms():
         print("Du hittade en nyckel")
         inventoryAdd("Nyckel 2")
         return "found"
-
-    #if tkey == False:
-        #print("Du hittade en nyckel +1 nyckel")
-        #keys = keys + 1
-        #tkey == True
-    #svar1 = input("Vill du leta vidare? ja/nej")
-    #if svar == "ja" and tcoin == False:
-        #print("Du letade runt i toaletten och hittade")
-    #elif tkey == True:
-        #print("Det finns inget här")
-        #time.sleep(1)
     
 
 def prizecorner():
@@ -200,9 +169,6 @@ def diningroom():
     elif indining > 2:
         return
     
-
-
-
 def escape():
     escape = True
     if cheats == True or keys == 3:
@@ -220,8 +186,6 @@ def end():
     time.sleep(10)
     intro()
 
-def death():
-    print("\nYou died\n")
-    time.sleep(5)
-    intro()
+def dead():
+    asciimodule.death()
 

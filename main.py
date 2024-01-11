@@ -1,7 +1,6 @@
 import map
 import animatronic
 import fnafgamereal
-import asciimodule
 from playsound import playsound
 from time import sleep
 Alive = True
@@ -12,7 +11,6 @@ letatToalett = False
 karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
-#asciimodule.huvt()
 
 
 while True:
@@ -35,7 +33,7 @@ while True:
             if karta.jagad("") == True:
                 if karta.run() == 4:
                     #playsound('freddy.mp3')
-                    print("dead")
+                    fnafgamereal.dead
                     Alive = False
             else:
                 fredrik.move()
