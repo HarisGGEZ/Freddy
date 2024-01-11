@@ -1,18 +1,15 @@
 import random
 import time
 import asciimodule
+from playsound import playsound
 
 inventoryList = []
 
 #temp values
 cheat_text = False
-nummerlapp = False
 difficulty = 1
-keys = 0
 cheats = False
 switch = "av"
-valvkod = 0
-valvtom = False
 coins = 0
 
 
@@ -20,7 +17,7 @@ coins = 0
 def inventory():
     print("I din väska:\n")
     if coins > 1:
-        print(f"Mynt: {coins} st\n")
+        print(f"\303[91Mynt: {coins} st [0m\303\n")
     inventoryList.sort()
     print(*inventoryList, sep="\n")
 
@@ -29,6 +26,7 @@ def exit():
         return True
 
 def intro():
+    asciimodule.huvt()
     print("Välkommen till fredriks")
     print("1-Spela")
     print("2-Options")
@@ -108,8 +106,7 @@ def play():
     print("lycka till")
     office()
 
-def supplycloset():  
-            print(CodeReal)
+def supplycloset():
             print("\nDu är i förrådet")
             print("Du ser ett kassavalv")
             svar = input("Hmmmm, här behövs en kod. \nVill du gissa koden? ja/nej\n")
@@ -160,32 +157,8 @@ def prizecorner():
         elif svar == "nyckel" and coins < 3:
             print("Du har inte tillräkligt med coins")
             break
-
-def diningroom():
-    indining = indining + 1
-    if indining < 1:
-        print("Du hittade ett mynt! +1 mynt")
-        coins = coins + 1
-    elif indining > 2:
-        return
     
-def escape():
-    escape = True
-    if cheats == True or keys == 3:
-        svar = input("Vill du fly? ja/nej")
-        if svar == "ja":
-            end()
-        elif svar == "nej":
-            diningroom()
-    elif keys < 3:
-        print(f"Du kan bara fly när du har fått 3 nycklar, Just nu har du {keys} nycklar.")
-        diningroom()
-
-def end():
-    print("Grattis du lyckades fly!")
-    time.sleep(10)
-    intro()
-
 def dead():
+    playsound(freddy.mp3)
     asciimodule.death()
 
