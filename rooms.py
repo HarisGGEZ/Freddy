@@ -13,7 +13,11 @@ cheats = False
 switch = "av"
 coins = 0
 
+<<<<<<< HEAD
 # vad man har i inventory
+=======
+
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
 def inventory():
     print("I din väska:\n")
     inventoryList.sort()
@@ -33,6 +37,10 @@ def intro():
         return True
     elif svar =="2" or "options":
         print("options")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
 
 # inuti inställningar
 def options():
@@ -91,7 +99,11 @@ def codeUsed():
 # koden som genereras till kassavalvet
 CodeReal = str(random.randint(1000, 9999))
 
+<<<<<<< HEAD
 # hur man spelar i förrådet, här kan man gissa koden till kassavalvet
+=======
+
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
 def supplycloset():
             print("\nDu är i förrådet")
             print("Du ser ett kassavalv")
@@ -150,9 +162,18 @@ def prizecorner():
             
         elif svar == "nej":
             break
+<<<<<<< HEAD
 
 # dör du spelas ett ljud upp samt 2 ascii målningar    
 def dead():
     playsound(freddy.mp3)
     asciimodule.fredrikjump()
     asciimodule.death()
+=======
+    
+def dead():
+    playsound(freddy.mp3)
+    asciimodule.fredrikjump()
+    asciimodule.death()
+
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
