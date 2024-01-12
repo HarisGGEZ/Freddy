@@ -13,7 +13,11 @@ cheats = False
 switch = "av"
 coins = 0
 
+<<<<<<< HEAD
+# vad man har i inventory
+=======
 
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
 def inventory():
     print("I din väska:\n")
     inventoryList.sort()
@@ -24,6 +28,7 @@ def exit():
     if "Nyckel 1" in inventoryList and "Nyckel 2" in inventoryList and "Nyckel 3" in inventoryList:
         return True
 
+# menyn till spelet
 def intro():
     asciimodule.huvt()
     #asciimodule.menu()
@@ -32,8 +37,12 @@ def intro():
         return True
     elif svar =="2" or "options":
         print("options")
+<<<<<<< HEAD
+=======
 
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
 
+# inuti inställningar
 def options():
     global fusk
     global difficulty
@@ -62,6 +71,7 @@ def options():
         intro()
     options()
 
+#väljer svårhetsgrad 
 def diff():
     print("Välj en svårhet mellan 1-3 \n1=Enkel \n2=Svår \n3=Extrem")
     global difficulty
@@ -75,7 +85,8 @@ def diff():
     else:
         print("snälla skriv ett nummer mellan 1-3")
         diff()
-    
+
+# lägger till objekt i listan
 def inventoryAdd(object):
     inventoryList.append(object)
 
@@ -85,10 +96,14 @@ def codeUsed():
     CodeReal = "used"
     return CodeReal
 
-
+# koden som genereras till kassavalvet
 CodeReal = str(random.randint(1000, 9999))
 
+<<<<<<< HEAD
+# hur man spelar i förrådet, här kan man gissa koden till kassavalvet
+=======
 
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
 def supplycloset():
             print("\nDu är i förrådet")
             print("Du ser ett kassavalv")
@@ -107,7 +122,7 @@ def supplycloset():
                     print("Fel kod")
             
 
-
+# går man in i köket får man alternativet att leta runt, väljs det får man 13 cois samt koden till kassavalvet
 def kitchen():
         svar = input("\nDu är i köket. Vad vill du göra? letarunt \n")
         if svar == "letarunt":
@@ -118,7 +133,7 @@ def kitchen():
             return "found"
             
         
-    
+# likadant som ovanför fast här hittar du en till nyckel som läggs in i listan (inventory)
 def restrooms():
     svar = input("Du befinner dig på toaletten, vill du leta runt?")
     if svar == "ja":
@@ -127,7 +142,7 @@ def restrooms():
         coinList.append("coin")
         return "found"
     
-
+# i prishörnan kan du välja att köpa en nyckel, koden berättar om du kan köpa eller inte har råd, köper du en nyckel blir antalet nycklar 1 fler samt dina coins blir 3 färre
 def prizecorner():
     print("Du befinner dig i prishörnan du ser en nyckel som kostar 5 coins")
     svar = input("Vad vill du göra? \n tillbaks \n nyckel")
@@ -147,9 +162,18 @@ def prizecorner():
             
         elif svar == "nej":
             break
+<<<<<<< HEAD
+
+# dör du spelas ett ljud upp samt 2 ascii målningar    
+def dead():
+    playsound(freddy.mp3)
+    asciimodule.fredrikjump()
+    asciimodule.death()
+=======
     
 def dead():
     playsound(freddy.mp3)
     asciimodule.fredrikjump()
     asciimodule.death()
 
+>>>>>>> 9b2a28082c9de07ec42e77cf60728983a2fa417d
