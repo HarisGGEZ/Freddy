@@ -13,11 +13,10 @@ switch = "av"
 coins = 0
 
 
-
 def inventory():
     print("I din väska:\n")
     if coins > 1:
-        print(f"\303[91Mynt: {coins} st [0m\303\n")
+        print(f"\033[91Mynt: {coins} st [0m\033\n")
     inventoryList.sort()
     print(*inventoryList, sep="\n")
 
@@ -27,13 +26,11 @@ def exit():
 
 def intro():
     asciimodule.huvt()
-    print("Välkommen till fredriks")
-    print("1-Spela")
-    print("2-Options")
+    asciimodule.menu()
     svar = input()
-    if svar == "1":
+    if svar == "1" or "spela":
         play()
-    elif svar =="2":
+    elif svar =="2" or "options":
         options()
 
 
@@ -91,20 +88,6 @@ def codeUsed():
 
 CodeReal = str(random.randint(1000, 9999))
 
-def play():
-    global cheat_text
-    if difficulty == 1:
-        valvkod = random.randint(1000, 9999)
-    elif difficulty == 2:
-        valvkod = random.randint(10000, 99999)
-    elif difficulty == 3:
-        valvkod = random.randint(100000, 999999)
-    if cheats == True:
-        cheat_text == True
-        coins = 999
-        robots == False
-    print("lycka till")
-    office()
 
 def supplycloset():
             print("\nDu är i förrådet")
@@ -160,5 +143,6 @@ def prizecorner():
     
 def dead():
     playsound(freddy.mp3)
+    asciimodule.fredrikjump()
     asciimodule.death()
 

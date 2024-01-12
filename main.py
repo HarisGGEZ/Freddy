@@ -15,6 +15,7 @@ fredrik = animatronic.Fredrik()
 
 
 while True:
+    rooms.intro()
     while Alive:
         if escaped == False:
             karta.printVal()
