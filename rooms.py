@@ -1,42 +1,37 @@
 import random
 import time
 import asciimodule
+from playsound import playsound
 
 inventoryList = []
+coinList = ["coin", "coin", "coin", "coin", "coin"]
 
 #temp values
 cheat_text = False
-nummerlapp = False
 difficulty = 1
-keys = 0
 cheats = False
 switch = "av"
-valvkod = 0
-valvtom = False
 coins = 0
-
 
 
 def inventory():
     print("I din väska:\n")
-    if coins > 1:
-        print(f"Mynt: {coins} st\n")
     inventoryList.sort()
     print(*inventoryList, sep="\n")
+    print(f"Du har {len(coinList)} mynt")
 
 def exit():
-    if "Nyckel 1" in inventoryList and "Nyckel 2" in inventoryList:
+    if "Nyckel 1" in inventoryList and "Nyckel 2" in inventoryList and "Nyckel 3" in inventoryList:
         return True
 
 def intro():
-    print("Välkommen till fredriks")
-    print("1-Spela")
-    print("2-Options")
-    svar = input()
-    if svar == "1":
-        play()
-    elif svar =="2":
-        options()
+    asciimodule.huvt()
+    #asciimodule.menu()
+    svar = input("1. Spela \n2. Inställningar")
+    if svar == "1" or "spela":
+        return True
+    elif svar =="2" or "options":
+        print("options")
 
 
 def options():
@@ -93,23 +88,8 @@ def codeUsed():
 
 CodeReal = str(random.randint(1000, 9999))
 
-def play():
-    global cheat_text
-    if difficulty == 1:
-        valvkod = random.randint(1000, 9999)
-    elif difficulty == 2:
-        valvkod = random.randint(10000, 99999)
-    elif difficulty == 3:
-        valvkod = random.randint(100000, 999999)
-    if cheats == True:
-        cheat_text == True
-        coins = 999
-        robots == False
-    print("lycka till")
-    office()
 
-def supplycloset():  
-            print(CodeReal)
+def supplycloset():
             print("\nDu är i förrådet")
             print("Du ser ett kassavalv")
             svar = input("Hmmmm, här behövs en kod. \nVill du gissa koden? ja/nej\n")
@@ -117,8 +97,10 @@ def supplycloset():
                 print(CodeReal)
                 kodsvar = input("Kod: ")
                 if kodsvar == CodeReal:
-                        print("Grattis du hittade en nyckel")
+                        print("Grattis du hittade en nyckel och två mynt")
                         inventoryAdd("Nyckel 1")
+                        coinList.append("coin")
+                        coinList.append("coin")
                         return "used"       
                 elif kodsvar != CodeReal:
                     print(CodeReal)
@@ -129,8 +111,10 @@ def supplycloset():
 def kitchen():
         svar = input("\nDu är i köket. Vad vill du göra? letarunt \n")
         if svar == "letarunt":
-            print(f"Du hittade 13 coins och en lapp med numret {CodeReal}")
+            print(f"Du hittade 2 coins och en lapp med numret {CodeReal}")
             inventoryAdd("Lapp med nummret " + CodeReal)
+            coinList.append("coin")
+            coinList.append("coin")
             return "found"
             
         
@@ -138,54 +122,34 @@ def kitchen():
 def restrooms():
     svar = input("Du befinner dig på toaletten, vill du leta runt?")
     if svar == "ja":
-        print("Du hittade en nyckel")
+        print("Du hittade en nyckel och ett mynt")
         inventoryAdd("Nyckel 2")
+        coinList.append("coin")
         return "found"
     
 
 def prizecorner():
-    print("Du befinner dig i prishörnan du ser en nyckel som kostar 50 coins")
+    print("Du befinner dig i prishörnan du ser en nyckel som kostar 5 coins")
     svar = input("Vad vill du göra? \n tillbaks \n nyckel")
     while True:
-        if svar == "nyckel" and coins == 3:
+        if svar == "nyckel" and len(coinList) == 5:
             svar = input("Vill du köpa nyckeln ja/nej")
         else:
-            print(f"Du har inte råd du har {coins}coins")
+            print(f"Du har inte råd")
+            break 
         if svar == "ja":
-            keys = keys + 1
-            coins = coins - 3
-            break
+            inventoryAdd("Nyckel 3")
+            for coin in coinList:
+                coinList.remove(coin)
+
+            
+            return "köpt"
+            
         elif svar == "nej":
             break
-        elif svar == "nyckel" and coins < 3:
-            print("Du har inte tillräkligt med coins")
-            break
-
-def diningroom():
-    indining = indining + 1
-    if indining < 1:
-        print("Du hittade ett mynt! +1 mynt")
-        coins = coins + 1
-    elif indining > 2:
-        return
     
-def escape():
-    escape = True
-    if cheats == True or keys == 3:
-        svar = input("Vill du fly? ja/nej")
-        if svar == "ja":
-            end()
-        elif svar == "nej":
-            diningroom()
-    elif keys < 3:
-        print(f"Du kan bara fly när du har fått 3 nycklar, Just nu har du {keys} nycklar.")
-        diningroom()
-
-def end():
-    print("Grattis du lyckades fly!")
-    time.sleep(10)
-    intro()
-
 def dead():
+    playsound(freddy.mp3)
+    asciimodule.fredrikjump()
     asciimodule.death()
 
