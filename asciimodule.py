@@ -1,13 +1,20 @@
 #rullande text
 import sys
 import time
+import keyboard
+import os
 def print_slow(str):
     for letter in str:
+        if keyboard.is_pressed("enter"):
+            os.system("cls")
+            return
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.05)
 # Funktioner som kallas när en specifik ascii art ska visas
 def huvt():
+
+
     print(""" 
  ______               _        _  _           _____  _                       _        
 |  ____|             | |      (_)| |         |  __ \(_)                     (_)       
