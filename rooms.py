@@ -5,6 +5,7 @@ from playsound import playsound
 
 inventoryList = []
 coinList = ["coin", "coin", "coin", "coin", "coin"]
+CodeReal = str(random.randint(1000, 9999))
 
 #temp values
 cheat_text = False
@@ -27,7 +28,7 @@ def exit():
 def intro():
     asciimodule.huvt()
     #asciimodule.menu()
-    svar = input("1. Spela \n2. Inställningar")
+    svar = input("\n\n1. Spela \n2. Inställningar")
     if svar == "1" or "spela":
         return True
     elif svar =="2" or "options":
@@ -86,7 +87,6 @@ def codeUsed():
     return CodeReal
 
 
-CodeReal = str(random.randint(1000, 9999))
 
 
 def supplycloset():
@@ -139,8 +139,8 @@ def prizecorner():
             break 
         if svar == "ja":
             inventoryAdd("Nyckel 3")
-            for coin in coinList:
-                coinList.remove(coin)
+            while len(coinList) != 0:
+                coinList.remove("coin")
 
             
             return "köpt"
