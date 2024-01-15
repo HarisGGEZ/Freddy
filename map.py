@@ -128,12 +128,12 @@ class kartaKlass():
 
             if self.d == ">-O" and ner == "vänster":
                 self.old = "matsal"
-                self.e = ">-O"
+                self.w = ">-O"
                 self.d = "   "
         
             if self.d == ">-O" and ner == "höger":
                 self.old = "matsal"
-                self.w = ">-O"
+                self.e = ">-O"
                 self.d = "   "
         
             if self.d == ">-O" and ner == "kök" :

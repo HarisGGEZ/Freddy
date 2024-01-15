@@ -1,19 +1,29 @@
 import map
 import animatronic
 import rooms
+import asciimodule
 from playsound import playsound
 from time import sleep
-Alive = False
+Alive = True
 Jagad = False
 kodAnvand = False
 letatKok = False
 letatToalett = False
 bought = False
 escaped = False
+cheats = False
 karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
+asciimodule.huvt()
+ 
 
+while True:
+    if rooms.intro() == True:
+        break
+    if rooms.intro() == "option":
+        if rooms.options() == "cheat":
+            fredrik.activateCheat()
 
 
 while True:
