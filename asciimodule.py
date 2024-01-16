@@ -23,10 +23,8 @@ def huvt():
                                     | |   | |  |  __/| (_| || |   | ||   < \__ \ | |    | | / /  / /|  __/| |   | || (_| |
                                     |_|   |_|   \___| \__,_||_|   |_||_|\_\|___/ |_|    |_|/___|/___|\___||_|   |_| \__,_| """)
                                                                                                 
-    print_slow("\n Du befinner dig i Fredriks pizzaria och råkade fastna i pizzarian.\n Du hörde att det är dödliga robotar där och du ska försöka fly utan att dö.\n Ditt jobb är att leta runt pizzarian för ett sätt att fly.\n Om Fredrik hittar dig då ska du försöka gå till kontoret så fort som möjligt.\n Lycka till")
-    print_slow("""\n Om du vill veta vart du befinner dig i kartan så skriv \033[91m"karta"\033[0m\n Om du vill veta vad du har på dig så kan du skriva \033[91m"väska"\033[0m\n""")
-    
-#huvt()
+    print_slow("\n Du befinner dig i Fredriks pizzaria och råkade fastna i pizzarian.\n Du hörde att det är dödliga robotar där och du ska försöka fly utan att dö.\n Ditt jobb är att leta runt pizzarian för ett sätt att fly.\n Om Fredrik hittar dig då ska du försöka gå till kontoret så fort som möjligt.\n Lycka till!")
+    print_slow("""\n Om du vill veta vart du befinner dig i kartan så skriv \033[91m"karta"\033[0m\n Om du vill veta vad du har på dig så kan du skriva \033[91m"väska"\033[0m\n Om du vill stanna i samma rum så skriv \033[91m"stanna"\033[0m\n Om du vill gå till tidigare rum så skriv \033[91m"tillbaka"\033[0m\n""")
 
 
 
@@ -83,22 +81,18 @@ def death():
 
 def menu():
     print('''
-                                             _____            _                          
-                                            /  ___|          | |                         
-                                            \ `--. _ __   ___| | __ _                    
-                                             `--. \ '_ \ / _ \ |/ _` |                   
-                                            /\__/ / |_) |  __/ | (_| |                   
-                                            \____/| .__/ \___|_|\__,_|                   
-                                                    | |                                    
-                                _____          _  _ |__ _ _       _                        
-                               |_   _|        | |(_) (_) | |     (_)                       
-                                 | | _ __  ___| |_ __ _| | |_ __  _ _ __   __ _  __ _ _ __ 
-                                 | || '_ \/ __| __/ _` | | | '_ \| | '_ \ / _` |/ _` | '__|
-                                _| || | | \__ \ || (_| | | | | | | | | | | (_| | (_| | |   
-                                \___/_| |_|___/\__\__,_|_|_|_| |_|_|_| |_|\__, |\__,_|_|   
-                                                                            __/ |           
-                                                                        |___/             
-    ''')
-
-
-
+                                                                     __        _____            _                                         
+                                                                    /_ |      / ____|          | |                                        
+                                                                     | |     | (___  _ __   ___| | __ _                                   
+                                                                     | |      \___ \| '_ \ / _ \ |/ _` |                                  
+                                                                     | |  _   ____) | |_) |  __/ | (_| |                                  
+                                                                     |_| (_) |_____/| .__/ \___|_|\__,_|                                  
+                                                                     ___      _____ | |       _  _   _ _ _       _                        
+                                                                    |__ \    |_   _||_|      | |(_) (_) | |     (_)                       
+                                                                       ) |     | |  _ __  ___| |_ __ _| | |_ __  _ _ __   __ _  __ _ _ __ 
+                                                                      / /      | | | '_ \/ __| __/ _` | | | '_ \| | '_ \ / _` |/ _` | '__|
+                                                                     / /_ _   _| |_| | | \__ \ || (_| | | | | | | | | | | (_| | (_| | |   
+                                                                    |____(_) |_____|_| |_|___/\__\__,_|_|_|_| |_|_|_| |_|\__, |\__,_|_|   
+                                                                                                                          __/ |           
+                                                                                                                         |___/            
+''')  
