@@ -5,7 +5,7 @@ import keyboard
 import os
 def print_slow(str):
     for letter in str:
-        if keyboard.is_pressed("space"):
+        if keyboard.is_pressed("escape"):
             os.system("cls")
             return
         sys.stdout.write(letter)
@@ -21,7 +21,9 @@ def huvt():
                                     | |__  _ __  ___   __| | _ __  _ | | __ ___  | |__) |_  ____ ____ ___  _ __  _   __ _ 
                                     |  __|| '__|/ _ \ / _` || '__|| || |/ // __| |  ___/| ||_  /|_  // _ \| '__|| | / _` |
                                     | |   | |  |  __/| (_| || |   | ||   < \__ \ | |    | | / /  / /|  __/| |   | || (_| |
-                                    |_|   |_|   \___| \__,_||_|   |_||_|\_\|___/ |_|    |_|/___|/___|\___||_|   |_| \__,_| """)
+                                    |_|   |_|   \___| \__,_||_|   |_||_|\_\|___/ |_|    |_|/___|/___|\___||_|   |_| \__,_| 
+                                     (tryck ESCAPE för att skippa)                                                       """)
+    
                                                                                                 
     print_slow("\n Du befinner dig i Fredriks pizzaria och råkade fastna i pizzarian.\n Du hörde att det är dödliga robotar där och du ska försöka fly utan att dö.\n Ditt jobb är att leta runt pizzarian för ett sätt att fly.\n Om Fredrik hittar dig då ska du försöka gå till kontoret så fort som möjligt.\n Lycka till!")
     print_slow("""\n Om du vill veta vart du befinner dig i kartan så skriv \033[91m"karta"\033[0m\n Om du vill veta vad du har på dig så kan du skriva \033[91m"väska"\033[0m\n Om du vill stanna i samma rum så skriv \033[91m"stanna"\033[0m\n Om du vill gå till tidigare rum så skriv \033[91m"tillbaka"\033[0m\n""")

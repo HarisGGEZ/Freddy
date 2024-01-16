@@ -16,19 +16,16 @@ karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
 asciimodule.huvt()
- 
-
-while True:
-    if rooms.intro() == True:
-        break
-    if rooms.intro() == "option":
-        if rooms.options() == "cheat":
-            fredrik.activateCheat()
-
+if rooms.intro() == "option":
+   if rooms.options() == "cheat":
+        fredrik.activateCheat()
 
 while True:
     while Alive:
         if escaped == False:
+            if fredrik.returnLocation() == karta.returnPlats() and karta.jagad("") == False:
+                karta.jagad("same")
+                playsound("alert.mp3")
             karta.printVal()
             val = input()
             val = val.lower()
@@ -45,7 +42,6 @@ while True:
                         print("Du har inte alla nycklar")
                 if karta.jagad("") == True:
                     if karta.run() == 4:
-                        #playsound('freddy.mp3')
                         rooms.dead
                         Alive = False
                 else:
@@ -63,13 +59,10 @@ while True:
             if karta.returnPlats() == "prishörnan" and bought == False:
                 if rooms.prizecorner() == "köpt":
                     bought = True
-            if fredrik.returnLocation() == karta.returnPlats() and karta.jagad("") == False:
-                karta.jagad("same")
-                #playsound("alert.mp3")
-            sleep(0.5)
-        
+            sleep(0.5) 
         if escaped == True:
-            retrywin = input("Du van? spela igen?\n")
+            retrywin = input("Du vann!!! spela igen?\n")
+            retrywin = retrywin.lower()
             if retrywin == "ja":
                 Alive = True
                 escaped = False
@@ -79,10 +72,10 @@ while True:
                 kodAnvand = False
                 letatKok = False
                 letatToalett = False
-
     if Alive == False:
-        rooms.dead
-        retry = input("spela igen?\n")
+        rooms.dead()
+        retry = input("Vill du spela igen?\n")
+        retry = retry.lower()
         if retry == "ja":
             Alive = True
             karta = map.kartaKlass()

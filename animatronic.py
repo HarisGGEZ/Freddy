@@ -33,10 +33,11 @@ class Fredrik():
                 self.old = "vänster hall"
             elif self.location == "förrådet":
                 self.location = choice([self.location, "vänster hall"])
-            self.old = "förrådet" 
+                self.old = "förrådet" 
         else:
             self.location = "scen"
             self.old = "scen"
+    
     def returnLocation(self):
         return self.location
     
