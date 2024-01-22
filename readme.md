@@ -1,3 +1,30 @@
+När du startar spelet kommer du ha allternative att starta spelet med defualt inställningar eller justera dem själv.
+I inställningar kan du justera beroende på hur du vill spela annars rekommenderar vi att låta dem vara.
+Ditt jobb är att hitta tre nycklar och fly där ifrån.
+Du kan alltid kolla kartan med att klicka m 
+
+Spelguide:
+
+Undvick fredrik
+Hitta nycklar 3/3
+Hitta utgången
+Fly
+
+Nycklarna finns i lokalen men du behöver leta runt för att få nycklarna. Nycklarna finns som följer: Förråd, Prishörnan, Toaletterna
+
+Nyckeln i förrådet:
+För att få nyckel i förrådet måste du ta dig till köket, I köket kan du leta runt och hitta en kod till valvet och mynt
+
+Nyckeln i Toaletterna:
+Du behöver endast ta dig till toaletterna och leta runt.
+
+Nyckeln i Prisshörnan:
+För att få nyckeln behöver du hitta 5 mynt, mynten finns som följer: I valvet från förrådet, I toaletterna och i köket.
+
+Om du nu har alla nycklar kan du gå vidare till utgången (se kartan) och fly
+
+Du har nu klarat spelet!
+
 # Fredriks Pizzeria
 
 Skapat av Wille Andersson, Marcus Cheng, Simon Ivarsson och Haris Sheikh
