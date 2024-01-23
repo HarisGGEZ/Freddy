@@ -1,5 +1,6 @@
 from time import sleep
-
+import msvcrt
+import keyboard
 
 class kartaKlass():
     def __init__(self):
@@ -15,6 +16,7 @@ class kartaKlass():
         self.location = "kontoret"
         self.hunt = False
         self.steps = 0
+        self.ner = None
         
     def printKarta(self):
         print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
@@ -119,24 +121,30 @@ class kartaKlass():
             self.t = ">-O"
             self.d = "   "
 
-        elif flytt == "upp" and self.d == ">-O":
+        elif flytt == "fram" and self.d == ">-O":
             return "exit attempt"
 
         elif flytt == "ner":
-            print("Höger, Vänster eller Kök?")
-            ner = input()
+            print("Höger (d), Vänster (a) eller Kök? (s)")
+            msvcrt.getch()
+            if keyboard.is_pressed("a"):
+                    self.ner = "vänster"
+            if keyboard.is_pressed("d"):
+                    self.ner = "höger"
+            if keyboard.is_pressed("s"):
+                self.ner = "kök"
 
-            if self.d == ">-O" and ner == "vänster":
+            if self.d == ">-O" and self.ner == "vänster":
                 self.old = "matsal"
                 self.w = ">-O"
                 self.d = "   "
         
-            if self.d == ">-O" and ner == "höger":
+            if self.d == ">-O" and self.ner == "höger":
                 self.old = "matsal"
                 self.e = ">-O"
                 self.d = "   "
         
-            if self.d == ">-O" and ner == "kök" :
+            if self.d == ">-O" and self.ner == "kök" :
                 self.old = "matsal"
                 self.k = ">-O"
                 self.d = "   "
@@ -249,7 +257,7 @@ class kartaKlass():
         if self.s == ">-O":
             print("Höger till Vänstra Hallen")
         if self.d == ">-O":
-            print("Vänster till Prishörnan \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nUpp till Utgången (Alla nycklar krävs)")
+            print("Vänster till Prishörnan \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nFram till Utgången (Alla nycklar krävs)")
         if self.t == ">-O":
             print("Vänster till Matsalen")
         if self.b == ">-O":
