@@ -124,7 +124,7 @@ class kartaKlass():
         elif flytt == "fram" and self.d == ">-O":
             return "exit attempt"
 
-        elif flytt == "ner":
+        elif flytt == "ner" and self.d == ">-O":
             print("Höger (d), Vänster (a) eller Kök? (s)")
             msvcrt.getch()
             if keyboard.is_pressed("a"):
@@ -174,7 +174,7 @@ class kartaKlass():
             self.k = ">-O"
             self.d = "   "
 
-        elif flytt == "tillbaka":
+        elif flytt == "fram":
             if self.old == "kök":
                 self.old = "matsal"
                 self.k = ">-O"
@@ -242,30 +242,27 @@ class kartaKlass():
                 self.old = "matsal"
                 self.b = ">-O"
                 self.d = "   "
-
     
     def printVal(self):
         Plats = self.location.capitalize()
         print(f"\nDu befinner dig i {Plats}. \nDu kan gå:")
         sleep(0.5)
         if self.o == ">-O":
-            print("Vänster till Vänstra Hallen \nHöger till Högra Hallen")
+            print("(a) Vänster till Vänstra Hallen \n(d) Höger till Högra Hallen")
         if self.w == ">-O":
-            print("Vänster till Förrådet \nHöger till Kontoret \nFram till Matsalen ")
+            print("(a) Vänster till Förrådet \n(d) Höger till Kontoret \n(w) Fram till Matsalen ")
         if self.e == ">-O":
-            print("Vänster till Kontoret \nFram till Matsalen")
+            print("(a) Vänster till Kontoret \n(w) Fram till Matsalen")
         if self.s == ">-O":
-            print("Höger till Vänstra Hallen")
+            print("(d) Höger till Vänstra Hallen")
         if self.d == ">-O":
-            print("Vänster till Prishörnan \nHöger till toaletterna. \nNer till Högra eller Vänstra hall eller Köket. \nFram till Utgången (Alla nycklar krävs)")
+            print("(a) Vänster till Prishörnan \n(d) Höger till toaletterna. \n(s) Ner till Högra eller Vänstra hall eller Köket. \n(w) Fram till Utgången (Alla nycklar krävs)")
         if self.t == ">-O":
-            print("Vänster till Matsalen")
+            print("(a) Vänster till Matsalen")
         if self.b == ">-O":
-            print("Höger till Matsalen")
+            print("(d) Höger till Matsalen")
         if self.k == ">-O":
-            print("Tillbaka till Matsalen")
-        #if self.l == ">-O":
-            #print(" \nTillbaka till Matsalen")
+            print("(w) Tillbaka till Matsalen")
         print("\n")
     
     def returnPlats(self):
@@ -285,8 +282,6 @@ class kartaKlass():
             self.location = "prishörnan"
         if self.k == ">-O":
             self.location = "köket"
-        #if self.l == ">-O":
-            #self.location = "utgång"
         return self.location
     
     def jagad(self, room):

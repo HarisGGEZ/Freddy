@@ -33,7 +33,10 @@ while True:
                 
                 if fredrik.returnLocation() == karta.returnPlats() and karta.jagad("") == False:
                     karta.jagad("same")
-                    playsound("alert.mp3")
+                    try:
+                        playsound('./' + "alert.mp3")
+                    except:
+                        pass
                 karta.printVal()
                 
                 msvcrt.getch()
@@ -49,13 +52,13 @@ while True:
                     val = "karta"
                 if  keyboard.is_pressed("i"):
                     val = "väska"
-                
-                
+                if keyboard.is_pressed("space"):
+                    val = "stanna"
                 if val == "karta":
                     karta.printKarta()
                 if val == "väska":
                     rooms.inventory()
-                if val == "höger" or val ==  "vänster" or val ==  "tillbaka"  or val ==  "fram" or  val == "kök" or val ==  "ner" or val == "stanna" or val == "upp":
+                if val == "höger" or val ==  "vänster" or val ==  "fram" or  val == "kök" or val ==  "ner" or val == "stanna":
                     if karta.flytt(val) == "exit attempt":
                         if rooms.exit() == True:
                             print("Du lyckades fly!")
@@ -63,9 +66,9 @@ while True:
                         else:
                             print("Du har inte alla nycklar")
                     val = None
+                    
                     if karta.jagad("") == True:
                         if karta.run() == 4:
-                            rooms.dead()
                             Alive = False
                     else:
                         fredrik.move()
@@ -85,9 +88,16 @@ while True:
                 sleep(0.5) 
         
         if escaped == True:
-            retrywin = input("Du vann!!! spela igen?\n")
+            asciimodule.victory()
+            print("Vill du spela igen?")
             retrywin = retrywin.lower()
             if retrywin == "ja":
+                while True:
+                    if rooms.intro() == "option":
+                        if rooms.options() == "cheat":
+                            fredrik.activateCheat()
+                    if keyboard.is_pressed("1"):
+                        break
                 Alive = True
                 escaped = False
                 karta = map.kartaKlass()
@@ -102,6 +112,12 @@ while True:
         retry = input("LOSER YOU DIED!!! BIG L!!! Vill du spela igen?\n")
         retry = retry.lower()
         if retry == "ja":
+            while True:
+                if rooms.intro() == "option":
+                    if rooms.options() == "cheat":
+                        fredrik.activateCheat()
+                if keyboard.is_pressed("1"):
+                    break
             Alive = True
             karta = map.kartaKlass()
             fredrik = animatronic.Fredrik()

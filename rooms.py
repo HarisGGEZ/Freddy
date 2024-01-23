@@ -52,7 +52,7 @@ def options():
             if keyboard.is_pressed("n"):
                 return "not cheat"
         #elif svar == "2":
-            #diff()
+            #diff()1
         elif keyboard.is_pressed("3"):
             print("Tutorial")
             time.sleep(4)
@@ -92,6 +92,7 @@ def supplycloset():
             print("\nDu är i förrådet")
             print("Du ser ett kassavalv")
             print("Hmmmm, här behövs en kod. \nVill du gissa koden? Y/N\n")
+            msvcrt.getch()
             if keyboard.is_pressed("y"):
                 print(CodeReal)
                 kodsvar = input("Kod: ")
@@ -109,6 +110,7 @@ def supplycloset():
 # går man in i köket får man alternativet att leta runt, väljs det får man 13 cois samt koden till kassavalvet
 def kitchen():
         print("\nDu är i köket. Vill du leta runt? Y/N \n")
+        msvcrt.getch()
         if keyboard.is_pressed("y"):
             print(f"Du hittade 2 mynt och en lapp med numret {CodeReal}")
             inventoryAdd("Lapp med nummret " + CodeReal)
@@ -120,6 +122,7 @@ def kitchen():
 # likadant som ovanför fast här hittar du en till nyckel som läggs in i listan (inventory)
 def restrooms():
     print("Du befinner dig på toaletten, vill du leta runt? Y/N")
+    msvcrt.getch()
     if keyboard.is_pressed("y"):
         print("Du hittade en nyckel och ett mynt")
         inventoryAdd("Nyckel 2")
@@ -131,6 +134,7 @@ def prizecorner():
     print("Du befinner dig i prishörnan du ser en nyckel som kostar 5 mynt")
     while True:
         print("Vill du köpa nyckeln ja/nej\n")
+        msvcrt.getch()
         if keyboard.is_pressed("y") and len(coinList) == 5:
                 inventoryAdd("Nyckel 3")
                 while len(coinList) != 0:
@@ -142,6 +146,9 @@ def prizecorner():
             break 
     
 def dead():
-    playsound("freddy.mp3")
     asciimodule.death()
+    try:
+        playsound('./' + "freddy.mp3")
+    except:
+         pass
 
