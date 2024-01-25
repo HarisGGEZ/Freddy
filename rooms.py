@@ -16,6 +16,7 @@ cheats = False
 switch = "av"
 coins = 0
 
+
 def inventory():
     print("I din väska:\n")
     inventoryList.sort()
@@ -25,6 +26,9 @@ def inventory():
 def exit():
     if "Nyckel 1" in inventoryList and "Nyckel 2" in inventoryList and "Nyckel 3" in inventoryList:
         return True
+    elif nokeys == True:
+        return True
+    
 
 # menyn till spelet
 def intro():
@@ -40,6 +44,7 @@ def intro():
 def options():
     while True:
         print(f"1. Fusk")
+<<<<<<< HEAD
         #print(f"2-Svårhet [{difficulty}]")
         print("3. Tutorial")
         print("4. Backa\n")
@@ -53,6 +58,38 @@ def options():
                 return "not cheat"
         #elif svar == "2":
             #diff()1
+=======
+        print("2. Tutorial")
+        print("3. Backa\n")
+        msvcrt.getch()
+        if keyboard.is_pressed("1"):
+            print("1 Toggle freddy")
+            print("2 Map cheats")
+            print("3 Unlimited coins")
+            print("4 No keys for escape")
+            time.sleep(1)
+            if keyboard.is_pressed("1"):
+                print("Fredrik av? Y/N \n")
+                msvcrt.getch()
+                if keyboard.is_pressed("y"):
+                    return "cheat"  
+                if keyboard.is_pressed("n"):
+                    return "not cheat"
+            if keyboard.is_pressed("2"):
+                mapcheats = True
+            if keyboard.is_pressed("3"):
+                if maxcoins == False:
+                    coinList.append("coin")
+                    coinList.append("coin")
+                    coinList.append("coin")
+                    coinList.append("coin")
+                    coinList.append("coin")
+                    maxcoins = True
+            if keyboard.is_pressed("4"):
+                if maxkeys == False:
+                    maxkeys = True
+                    inventoryList.append("Nyckel 1","Nyckel 2","Nyckel 3")
+>>>>>>> c574840da0ae348284264256b09307873619b5c2
         elif keyboard.is_pressed("3"):
             print("Tutorial")
             time.sleep(4)
@@ -123,14 +160,20 @@ def restrooms():
 def prizecorner():
     print("Du befinner dig i prishörnan du ser en nyckel som kostar 5 mynt")
     while True:
+<<<<<<< HEAD
         print("Vill du köpa nyckeln ja/nej\n")
         keyboard.read_key()
+=======
+        print("Vill du köpa nyckeln y/n\n")
+        msvcrt.getch()
+>>>>>>> c574840da0ae348284264256b09307873619b5c2
         if keyboard.is_pressed("y") and len(coinList) == 5:
                 inventoryAdd("Nyckel 3")
                 while len(coinList) != 0:
                     coinList.remove("coin")
                 return "köpt"
-
+        elif keyboard.is_pressed("n"):
+            break
         else:
             print(f"Du har inte råd")
             break 

@@ -7,6 +7,7 @@ from time import sleep
 import keyboard
 import msvcrt
 
+#defined temp values
 Alive = True
 Jagad = False
 kodAnvand = False
@@ -19,6 +20,7 @@ val = None
 karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
+
 asciimodule.huvt()
 asciimodule.movment()
 while True:
@@ -28,6 +30,7 @@ while True:
     if keyboard.is_pressed("1"):
         break
 
+#Hela spel loopen,
 while True:
     while Alive:
         if escaped == False:
@@ -95,8 +98,10 @@ while True:
         
         if escaped == True:
             asciimodule.victory()
-            print("Vill du spela igen?")
+            retrywin = input("Vill du spela igen? ja/nej")
             retrywin = retrywin.lower()
+            if retrywin == "nej":
+                exit
             if retrywin == "ja":
                 while True:
                     if rooms.intro() == "option":
