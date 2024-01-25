@@ -20,6 +20,7 @@ karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
 asciimodule.huvt()
+asciimodule.movment()
 while True:
     if rooms.intro() == "option":
         if rooms.options() == "cheat":
@@ -40,20 +41,25 @@ while True:
                 karta.printVal()
                 
                 msvcrt.getch()
+                keyboard.read_key()
                 if keyboard.is_pressed("a"):
                     val = "vänster"
-                if keyboard.is_pressed("d"):
+                elif keyboard.is_pressed("d"):
                     val = "höger"
-                if keyboard.is_pressed("w"):
+                elif keyboard.is_pressed("w"):
                     val = "fram"
-                if keyboard.is_pressed("s"):
+                elif keyboard.is_pressed("s"):
                     val = "ner"
-                if keyboard.is_pressed("m"):
+                elif keyboard.is_pressed("m"):
                     val = "karta"
-                if  keyboard.is_pressed("i"):
+                elif  keyboard.is_pressed("i"):
                     val = "väska"
-                if keyboard.is_pressed("space"):
+                elif keyboard.is_pressed("space"):
                     val = "stanna"
+                
+                
+
+
                 if val == "karta":
                     karta.printKarta()
                 if val == "väska":
@@ -125,3 +131,4 @@ while True:
             kodAnvand = False
             letatKok = False
             letatToalett = False
+    
