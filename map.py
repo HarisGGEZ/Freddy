@@ -125,8 +125,9 @@ class kartaKlass():
             return "exit attempt"
 
         elif flytt == "ner" and self.d == ">-O":
+            sleep(0.5)
             print("Höger (d), Vänster (a) eller Kök? (s)")
-            msvcrt.getch()
+            keyboard.read_key()
             if keyboard.is_pressed("a"):
                     self.ner = "vänster"
             if keyboard.is_pressed("d"):

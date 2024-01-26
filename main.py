@@ -20,7 +20,7 @@ val = None
 karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
-
+# Start menyn
 asciimodule.huvt()
 asciimodule.movment()
 while True:
@@ -98,11 +98,11 @@ while True:
         
         if escaped == True:
             asciimodule.victory()
-            retrywin = input("Vill du spela igen? ja/nej")
-            retrywin = retrywin.lower()
-            if retrywin == "nej":
-                exit
-            if retrywin == "ja":
+            print("Vill du spela igen? Y/N")
+            keyboard.read_key()
+            if keyboard.is_pressed("n"):
+                break
+            elif keyboard.is_pressed("y"):
                 while True:
                     if rooms.intro() == "option":
                         if rooms.options() == "cheat":
@@ -120,9 +120,11 @@ while True:
     
     if Alive == False:
         rooms.dead()
-        retry = input("LOSER YOU DIED!!! BIG L!!! Vill du spela igen?\n")
-        retry = retry.lower()
-        if retry == "ja":
+        print("Vill du spela igen?")
+        keyboard.read_key
+        if keyboard.is_pressed("n"):
+            break
+        elif keyboard.is_pressed("y"):
             while True:
                 if rooms.intro() == "option":
                     if rooms.options() == "cheat":
