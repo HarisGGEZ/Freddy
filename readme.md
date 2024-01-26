@@ -1,9 +1,22 @@
+# installering av spel
+
+När du ska ladda ner spelt ska du git clona det i git bash, när du är inne i git bash ska du skriva "cd freddy". 
+Sedan ska du skriva "code main.py" för att starta spelet. 
+
+# Moduler 
+! keyboard 
+! playsound 
+Innan du spelar spelt måste du ladda ner några moduler. För att ladda ner dessa moduler måste du gå in i command prompt(cmd). När du är inne i Command prompt (cmd) ska du skriva in "pip install keyboard" och "pip install playsound".
+
+# spel information
 När du startar spelet kommer du ha allternative att starta spelet med defualt inställningar eller justera dem själv.
 I inställningar kan du justera beroende på hur du vill spela annars rekommenderar vi att låta dem vara.
 Ditt jobb är att hitta tre nycklar och fly där ifrån.
-Du kan alltid kolla kartan med att klicka m 
+Du kan alltid kolla kartan med att klicka "m" och kolla inventory "i"
 
 Spelguide:
+
+För att starta spelt ska du 
 
 Undvick fredrik
 Hitta nycklar 3/3
@@ -25,11 +38,6 @@ Om du nu har alla nycklar kan du gå vidare till utgången (se kartan) och fly
 
 Du har nu klarat spelet!
 
-# Moduler 
-Modluer :
-! keyboard 
-! playsound 
-Innan du spelar spelt måste du ladda ner några moduler. För att ladda ner dessa moduler måste du gå in i command prompt(cmd). När du är inne i Command prompt (cmd) ska du skriva in "pip install keyboard" och "pip install playsound".
 # Fredriks Pizzeria
 
 Skapat av Wille Andersson, Marcus Cheng, Simon Ivarsson och Haris Sheikh
