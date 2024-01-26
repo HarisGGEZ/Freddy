@@ -3,6 +3,7 @@ import sys
 import time
 import keyboard
 import os
+# Källa för kod => https://stackoverflow.com/questions/4099422/printing-slowly-simulate-typing
 def print_slow(str):
     for letter in str:
         if keyboard.is_pressed("escape"):
