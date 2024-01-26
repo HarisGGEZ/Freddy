@@ -25,6 +25,11 @@ Om du nu har alla nycklar kan du gå vidare till utgången (se kartan) och fly
 
 Du har nu klarat spelet!
 
+# Moduler 
+Modluer :
+! keyboard 
+! playsound 
+Innan du spelar spelt måste du ladda ner några moduler. För att ladda ner dessa moduler måste du gå in i command prompt(cmd). När du är inne i Command prompt (cmd) ska du skriva in "pip install keyboard" och "pip install playsound".
 # Fredriks Pizzeria
 
 Skapat av Wille Andersson, Marcus Cheng, Simon Ivarsson och Haris Sheikh
