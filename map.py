@@ -1,8 +1,8 @@
 from time import sleep
-import msvcrt
 import keyboard
 
 class kartaKlass():
+    # Värden som klassen får när den skapas
     def __init__(self):
         self.o = ">-O"
         self.e = "   "
@@ -18,7 +18,8 @@ class kartaKlass():
         self.steps = 0
         self.ner = None
         
-    def printKarta(self):
+    # Printar en bild av kartan
+    def printMap(self):
         print(f'''                                                                                                                                                                                                                                                                                                                                                                                       
                                             ''...............................''                                              
                                             .,.                               .;.    .............                                   
@@ -58,7 +59,7 @@ class kartaKlass():
                         ''         .;;..;'          .,.                   .,.          ',   ,,                       ,,         
                         ''         .,.  ,'          .,.   .............   .,.          ',   .'.......................'.         
                         ''         .,.  ,'          .,.  ,;...........;,  .;.          ',                                       
-                        ';.........';.  ,'          .,.  ,'  \033[91mKontor\033[0m          .,  .,.          ',                                       
+                        ';.........';.  ,'          .,.  ,'  \033[91mKontor\033[0m   .,  .,.          ',                                       
                         ...........    ,'          .,.  ,'           ',  .,.          ',                                       
                                         ,'          .;,..:'           ':'.,;.          ',                                       
                                         ,'    {self.w}              {self.o}              {self.e}    ',                                       
@@ -69,25 +70,26 @@ class kartaKlass():
         )
         
         
-    def flytt(self, flytt):
+    # Förflyttelse beroende på nuvarande plats
+    def move(self, move):
         
-        if flytt == "vänster" and self.o == ">-O":
+        if move == "vänster" and self.o == ">-O":
             self.o = "   "
             self.old = "kontor"
             self.e = "   "
             self.w = ">-O"
             
-        elif flytt == "höger" and self.o == ">-O":
+        elif move == "höger" and self.o == ">-O":
             self.o = "   "
             self.old = "kontor"
             self.e = ">-O"
         
-        elif flytt == "vänster" and self.w == ">-O":
+        elif move == "vänster" and self.w == ">-O":
             self.old = "väst"
             self.s = ">-O"
             self.w = "   "
             
-        elif flytt == "fram" and (self.e == ">-O" or self.w == ">-O"):
+        elif move == "fram" and (self.e == ">-O" or self.w == ">-O"):
             if self.e == ">-O":
                 self.old = "öst"
             if self.w == ">-O":
@@ -96,36 +98,36 @@ class kartaKlass():
             self.e = "   "
             self.w = "   "
 
-        elif flytt == "vänster" and self.e == ">-O":
+        elif move == "vänster" and self.e == ">-O":
             self.old = "öst"
             self.o = ">-O"
             self.e = "   "
         
-        elif flytt == "höger" and self.w == ">-O":
+        elif move == "höger" and self.w == ">-O":
             self.old = "väst"
             self.o = ">-O"
             self.w = "   "
 
-        elif flytt == "höger" and self.s == ">-O":
+        elif move == "höger" and self.s == ">-O":
             self.old = "förråd"
             self.s = "   "
             self.w = ">-O"
             
-        elif flytt == "vänster" and self.d == ">-O":
+        elif move == "vänster" and self.d == ">-O":
             self.old = "matsal"
             self.b = ">-O"
             self.d = "   "
 
-        elif flytt == "höger" and self.d == ">-O":
+        elif move == "höger" and self.d == ">-O":
             self.old = "matsal"
             self.t = ">-O"
             self.d = "   "
 
-        elif flytt == "fram" and self.d == ">-O":
+        elif move == "fram" and self.d == ">-O":
             return "exit attempt"
 
-        elif flytt == "ner" and self.d == ">-O":
-            sleep(0.5)
+        elif move == "ner" and self.d == ">-O":
+            sleep(0.1)
             print("Höger (d), Vänster (a) eller Kök? (s)")
             keyboard.read_key()
             if keyboard.is_pressed("a"):
@@ -150,32 +152,32 @@ class kartaKlass():
                 self.k = ">-O"
                 self.d = "   "
         
-        elif flytt == "höger hall" and self.d == ">-O":
+        elif move == "höger hall" and self.d == ">-O":
             self.old = "matsal"
             self.w = ">-O"
             self.d = "   "
 
-        elif flytt == "höger" and self.d == ">-O":
+        elif move == "höger" and self.d == ">-O":
             self.old = "matsal"
             self.t = ">-O"
             self.d = "   "
         
-        elif flytt == "höger" and self.b == ">-O":
+        elif move == "höger" and self.b == ">-O":
             self.old = "prishörna"
             self.d = ">-O"
             self.b = "  "
         
-        elif flytt == "vänster" and self.t == ">-O":
+        elif move == "vänster" and self.t == ">-O":
             self.old = "toaletter"
             self.d = ">-O"
             self.t = "  "
         
-        elif flytt == "kök" and self.d == ">-O":
+        elif move == "kök" and self.d == ">-O":
             self.old = "matsal"
             self.k = ">-O"
             self.d = "   "
 
-        elif flytt == "fram":
+        elif move == "fram":
             if self.old == "kök":
                 self.old = "matsal"
                 self.k = ">-O"
@@ -244,29 +246,31 @@ class kartaKlass():
                 self.b = ">-O"
                 self.d = "   "
     
-    def printVal(self):
+    # Visar vart man kan röra sig
+    def printChoice(self):
         Plats = self.location.capitalize()
         print(f"\nDu befinner dig i {Plats}. \nDu kan gå:")
         sleep(0.5)
         if self.o == ">-O":
-            print("(a) Vänster till Vänstra Hallen \n(d) Höger till Högra Hallen")
+            print("(\033[91ma\033[0m) Vänster till Vänstra Hallen \n(\033[91md\033[0m) Höger till Högra Hallen")
         if self.w == ">-O":
-            print("(a) Vänster till Förrådet \n(d) Höger till Kontoret \n(w) Fram till Matsalen ")
+            print("(\033[91ma\033[0m) Vänster till Förrådet \n(\033[91md\033[0m) Höger till Kontoret \n(\033[91mw\033[0m) Fram till Matsalen ")
         if self.e == ">-O":
-            print("(a) Vänster till Kontoret \n(w) Fram till Matsalen")
+            print("(\033[91ma\033[0m) Vänster till Kontoret \n(\033[91mw\033[0m) Fram till Matsalen")
         if self.s == ">-O":
-            print("(d) Höger till Vänstra Hallen")
+            print("(\033[91md\033[0m) Höger till Vänstra Hallen")
         if self.d == ">-O":
-            print("(a) Vänster till Prishörnan \n(d) Höger till toaletterna. \n(s) Ner till Högra eller Vänstra hall eller Köket. \n(w) Fram till Utgången (Alla nycklar krävs)")
+            print("(\033[91ma\033[0m) Vänster till Prishörnan \n(\033[91md\033[0m) Höger till toaletterna. \n(\033[91ms\033[0m) Ner till Högra eller Vänstra hall eller Köket. \n(\033[91mw\033[0m) Fram till Utgången (Alla nycklar krävs)")
         if self.t == ">-O":
-            print("(a) Vänster till Matsalen")
+            print("(\033[91ma\033[0m) Vänster till Matsalen")
         if self.b == ">-O":
-            print("(d) Höger till Matsalen")
+            print("(\033[91md\033[0m) Höger till Matsalen")
         if self.k == ">-O":
-            print("(w) Tillbaka till Matsalen")
+            print("(\033[91mw\033[0m) Tillbaka till Matsalen")
         print("\n")
     
-    def returnPlats(self):
+    # Skickar tillbaka nuvarande position
+    def returnLocation(self):
         if self.o == ">-O":
             self.location = "kontoret"
         if self.w == ">-O":
@@ -285,19 +289,20 @@ class kartaKlass():
             self.location = "köket"
         return self.location
     
-    def jagad(self, room):
-        if room == "same":
+    # Kollar ifall man blir jagad.
+    def hunted(self, roomStatus):
+        if roomStatus == "same":
             self.hunt = True
-            print("Fredrik såg dig!! Skynda dig tillbaka till kontoret!\n")
+            print("\033[91mFredrik såg dig!! Skynda dig tillbaka till kontoret!\n\033[0m")
         if self.hunt == True:
             return True
         else:
             return False
-
+    # Skickar tillbaka hur många steg man tagit medan man blir jagad.
     def run(self):
         if self.hunt == True and self.o != ">-O":
             self.steps = self.steps + 1
-            print("Fredrik Jagar dig!\n")
+            print("\033[91mFredrik Jagar dig!\n\033[0m")
         if self.o == ">-O":
             self.steps = 0
             print("Du hann undan\n")

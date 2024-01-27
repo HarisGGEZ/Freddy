@@ -5,24 +5,24 @@ import asciimodule
 from playsound import playsound
 from time import sleep
 import keyboard
-import msvcrt
 
-#defined temp values
-Alive = True
-Jagad = False
-kodAnvand = False
-letatKok = False
-letatToalett = False
+#defined temp choiceues
+alive = True
+hunt  = False
+codeUsed = False
+kitchenSearched = False
+toiletSearched = False
 bought = False
 escaped = False
-cheats = False
-val = None
+choice = None
 karta = map.kartaKlass()
 fredrik = animatronic.Fredrik()
 
 # Start menyn
 asciimodule.huvt()
+sleep(0.3)
 asciimodule.movment()
+sleep(0.3)
 while True:
     if rooms.intro() == "option":
         if rooms.options() == "cheat":
@@ -32,71 +32,68 @@ while True:
 
 #Hela spel loopen,
 while True:
-    while Alive:
+    while alive:
         if escaped == False:
                 
-                if fredrik.returnLocation() == karta.returnPlats() and karta.jagad("") == False:
-                    karta.jagad("same")
+                if fredrik.returnLocation() == karta.returnLocation() and karta.hunted("") == False:
+                    karta.hunted("same")
                     try:
                         playsound('./' + "alert.mp3")
                     except:
                         pass
-                karta.printVal()
-                
-                msvcrt.getch()
+                karta.printChoice()
+        
                 keyboard.read_key()
                 if keyboard.is_pressed("a"):
-                    val = "vänster"
+                    choice = "vänster"
                 elif keyboard.is_pressed("d"):
-                    val = "höger"
+                    choice = "höger"
                 elif keyboard.is_pressed("w"):
-                    val = "fram"
+                    choice = "fram"
                 elif keyboard.is_pressed("s"):
-                    val = "ner"
+                    choice = "ner"
                 elif keyboard.is_pressed("m"):
-                    val = "karta"
+                    choice = "karta"
                 elif  keyboard.is_pressed("i"):
-                    val = "väska"
+                    choice = "väska"
                 elif keyboard.is_pressed("space"):
-                    val = "stanna"
+                    choice = "stanna"
                 
-                
-
-
-                if val == "karta":
-                    karta.printKarta()
-                if val == "väska":
+                if choice == "karta":
+                    karta.printMap()
+                if choice == "väska":
                     rooms.inventory()
-                if val == "höger" or val ==  "vänster" or val ==  "fram" or  val == "kök" or val ==  "ner" or val == "stanna":
-                    if karta.flytt(val) == "exit attempt":
+                if choice == "höger" or choice ==  "vänster" or choice ==  "fram" or  choice == "kök" or choice ==  "ner" or choice == "stanna":
+                    if karta.move(choice) == "exit attempt":
                         if rooms.exit() == True:
                             print("Du lyckades fly!")
                             escaped = True
                         else:
                             print("Du har inte alla nycklar")
-                    val = None
-                    
-                    if karta.jagad("") == True:
+                    choice = None
+                    if karta.hunted("") == True:
                         if karta.run() == 4:
-                            Alive = False
+                            alive = False
                     else:
                         fredrik.move()
                         fredrik.printMove()
-                if karta.returnPlats() == "förrådet" and kodAnvand == False:
+                if karta.returnLocation() == "förrådet" and codeUsed== False:
                     if rooms.supplycloset() == "used":
-                        kodAnvand = True
-                if karta.returnPlats() == "köket" and letatKok == False:
+                        codeUsed= True
+                if karta.returnLocation() == "köket" and kitchenSearched == False:
                     if rooms.kitchen() == "found":
-                        letatKok = True
-                if karta.returnPlats() == "toaletterna" and letatToalett == False:
+                        kitchenSearched = True
+                if karta.returnLocation() == "toaletterna" and toiletSearched == False:
                     if rooms.restrooms() == "found":
-                        letatToalett = True
-                if karta.returnPlats() == "prishörnan" and bought == False:
+                        toiletSearched = True
+                if karta.returnLocation() == "prishörnan" and bought == False:
                     if rooms.prizecorner() == "köpt":
                         bought = True
                 sleep(0.5) 
         
         if escaped == True:
+            karta = map.kartaKlass()
+            fredrik = animatronic.Fredrik()
             asciimodule.victory()
             print("Vill du spela igen? Y/N")
             keyboard.read_key()
@@ -109,19 +106,20 @@ while True:
                             fredrik.activateCheat()
                     if keyboard.is_pressed("1"):
                         break
-                Alive = True
+                alive = True
                 escaped = False
-                karta = map.kartaKlass()
-                fredrik = animatronic.Fredrik()
-                Jagad = False
-                kodAnvand = False
-                letatKok = False
-                letatToalett = False
+                hunt = False
+                codeUsed= False
+                kitchenSearched = False
+                toiletSearched = False
+                rooms.itemsReset()
     
-    if Alive == False:
+    if alive == False:
         rooms.dead()
-        print("Vill du spela igen?")
-        keyboard.read_key
+        karta = map.kartaKlass()
+        fredrik = animatronic.Fredrik()
+        print("Vill du spela igen? Y/N")
+        keyboard.read_key()
         if keyboard.is_pressed("n"):
             break
         elif keyboard.is_pressed("y"):
@@ -131,11 +129,9 @@ while True:
                         fredrik.activateCheat()
                 if keyboard.is_pressed("1"):
                     break
-            Alive = True
-            karta = map.kartaKlass()
-            fredrik = animatronic.Fredrik()
-            Jagad = False
-            kodAnvand = False
-            letatKok = False
-            letatToalett = False
-    
+            alive = True
+            hunt = False
+            codeUsed = False
+            kitchenSearched = False
+            toiletSearched = False
+            rooms.itemsReset()

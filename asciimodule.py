@@ -28,7 +28,7 @@ def huvt():
     
                                                                                                 
     print_slow("\n Du befinner dig i Fredriks pizzaria och råkade fastna i pizzarian.\n Du hörde att det är dödliga robotar där och du ska försöka fly utan att dö.\n Ditt jobb är att leta runt pizzarian för ett sätt att fly.\n Om Fredrik hittar dig då ska du försöka gå till kontoret så fort som möjligt.\n Lycka till!")
-    print_slow("""\n Om du vill veta vart du befinner dig i kartan så klicka \033[91m"(M)"\033[0m\n Om du vill veta vad du har på dig så kan du klicka\033[91m"(I)"\033[0m\n Om du vill stanna i samma rum så skriv \033[91m"stanna eller klicka (space)"\033[0m\n""")
+    print_slow("""\n Om du vill veta vart du befinner dig i kartan så klicka \033[91m"(M)"\033[0m\n Om du vill veta vad du har på dig så kan du klicka\033[91m"(I)"\033[0m\n Om du vill stanna i samma rum så tryck på \033[91m"(space)"\033[0m\n""")
 
 
 def death():
@@ -87,15 +87,15 @@ def victory():
 def movment():
     print('''                                  
                                                                                                                       
- _______     _______     _______     _______     _______     _______     ________ 
-|\     /|   |\     /|   |\     /|   |\     /|   |\     /|   |\     /|   |\      /|
-| +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +----+ |
-| |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |Spa-| |
-| | W | |   | | A | |   | | S | |   | | D | |   | | M | |   | | I | |   | | ce | |
-| +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +----+ |
-|/_____\|   |/_____\|   |/_____\|   |/_____\|   |/_____\|   |/_____\|   |/______\|
+                                                _______     _______     _______     _______     _______     _______     ________ 
+                                               |\     /|   |\     /|   |\     /|   |\     /|   |\     /|   |\     /|   |\      /|
+                                               | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +----+ |
+                                               | |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |Spa-| |
+                                               | | W | |   | | A | |   | | S | |   | | D | |   | | M | |   | | I | |   | | ce | |
+                                               | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +---+ |   | +----+ |
+                                               |/_____\|   |/_____\|   |/_____\|   |/_____\|   |/_____\|   |/_____\|   |/______\|
                                                                                        
-  Fram       Vänster       Ner        Höger       Karta       Väska       Stanna    
+                                                 Fram       Vänster       Ner        Höger       Karta       Väska       Stanna    
           
           ''')
     

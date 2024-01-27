@@ -7,7 +7,7 @@ class Fredrik():
         self.old = None
         self.cheat = False
         
-
+    # Förflyttelse för Fredrik
     def move(self):
         if self.cheat == False:
             if self.location == "scen":
@@ -38,14 +38,17 @@ class Fredrik():
             self.location = "scen"
             self.old = "scen"
     
+    # Skickar tillbaka platsen.
     def returnLocation(self):
         return self.location
     
+    # Printar förflyttelse
     def printMove(self):
         if self.old != self.location:
             print(f"\nFredrik flyttade sig från {self.old} till {self.location}\n")
         else:
             print(f"\nFredrik stannar i {self.old}\n")
 
+    # Aktiverar fusk
     def activateCheat(self):
         self.cheat = True
