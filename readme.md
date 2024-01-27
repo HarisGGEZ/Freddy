@@ -20,7 +20,7 @@ Spelguide:
 Undvick fredrik\
 Hitta nycklar 3/3\
 Hitta utgången\
-Fly\ 
+Fly
 
 
 Nycklarna finns i lokalen men du behöver leta runt för att få nycklarna. Nycklarna finns som följer: Förråd, Prishörnan, Toaletterna
