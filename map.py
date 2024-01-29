@@ -127,8 +127,8 @@ class kartaKlass():
             return "exit attempt"
 
         elif move == "ner" and self.d == ">-O":
-            sleep(0.1)
-            print("Höger (d), Vänster (a) eller Kök? (s)")
+            sleep(0.3)
+            print("(\033[91md\033[0m) Höger Hall, (\033[91ma\033[0m) Vänster Hall eller (\033[91ms\033[0m) Köket")
             keyboard.read_key()
             if keyboard.is_pressed("a"):
                     self.ner = "vänster"

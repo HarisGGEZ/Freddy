@@ -33,7 +33,7 @@ def options():
     maxCoins = False
     maxKeys = False
     while True:
-        time.sleep(0.5)
+        time.sleep(0.3)
         print("\n1. Fusk")
         print("2. Backa\n")
         keyboard.read_key()
@@ -43,11 +43,11 @@ def options():
                     print("2. Alla Mynt")
                     print("3. Alla Nycklar")
                     print("4. Tillbaka\n")
-                    time.sleep(1)
+                    time.sleep(0.3)
                     keyboard.read_key()
                     if keyboard.is_pressed("1"):
                             print("\nFredrik är avstängd.")
-                            time.sleep(1)
+                            time.sleep(0.3)
                             return "cheat"  
                     if keyboard.is_pressed("2"):
                         if maxCoins == False:
@@ -152,7 +152,7 @@ def prizecorner():
 def dead():
     asciimodule.death()
     try:
-        playsound('./' + "freddy.mp3")
+        playsound("freddy.mp3")
     except:
          pass
 

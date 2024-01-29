@@ -38,7 +38,7 @@ while True:
                 if fredrik.returnLocation() == karta.returnLocation() and karta.hunted("") == False:
                     karta.hunted("same")
                     try:
-                        playsound('./' + "alert.mp3")
+                        playsound("alert.mp3")
                     except:
                         pass
                 karta.printChoice()
